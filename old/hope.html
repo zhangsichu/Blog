@@ -1,0 +1,374 @@
+<html>
+<head>
+    <title>向往</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+    <link href="css/hope.css" type="text/css" rel="stylesheet" />
+    <style type="text/css">#divUpControl {
+	Z-INDEX: 1; LEFT: 10px; WIDTH: 320px; POSITION: absolute; TOP: 10px; TEXT-ALIGN: right
+}
+#divDownControl {
+	Z-INDEX: 1; LEFT: 10px; WIDTH: 320px; POSITION: absolute; TOP: 270px; TEXT-ALIGN: right
+}
+#divContainer {
+	LEFT: 10px; VISIBILITY: hidden; OVERFLOW: hidden; WIDTH: 320px; CLIP: rect(0px 320px 240px 0px); POSITION: absolute; TOP: 30px; HEIGHT: 240px
+}
+#divContent {
+	LEFT: 0px; POSITION: absolute; TOP: 0px
+}
+</style>
+
+    <script type="text/javascript">
+<!--
+
+function newImage(arg) {
+	if (document.images) {
+		rslt = new Image();
+		rslt.src = arg;
+		return rslt;
+	}
+}
+
+function changeImages() {
+	if (document.images && (preloadFlag == true)) {
+		for (var i=0; i<changeImages.arguments.length; i+=2) {
+			document[changeImages.arguments[i]].src = changeImages.arguments[i+1];
+		}
+	}
+}
+
+var preloadFlag = false;
+function preloadImages() {
+	if (document.images) {
+		hope_09_hope_10_over = newImage("images/hope_09-hope_10_over.gif");
+		hope_09_hope_15_over = newImage("images/hope_09-hope_15_over.gif");
+		hope_10_over = newImage("images/hope_10-over.gif");
+		hope_15_over = newImage("images/hope_15-over.gif");
+		hope_17_hope_10_over = newImage("images/hope_17-hope_10_over.gif");
+		hope_21_hope_22_over = newImage("images/hope_21-hope_22_over.gif");
+		hope_22_over = newImage("images/hope_22-over.gif");
+		preloadFlag = true;
+	}
+}
+
+// -->
+    </script>
+
+    <script language="javascript" type="text/javascript">
+function verifyCompatibleBrowser(){ 
+    this.ver=navigator.appVersion 
+    this.dom=document.getElementById?1:0 
+    this.ie5=(this.ver.indexOf("MSIE 5")>-1 && this.dom)?1:0; 
+    this.ie4=(document.all && !this.dom)?1:0; 
+    this.ns5=(this.dom && parseInt(this.ver) >= 5) ?1:0; 
+ 
+    this.ns4=(document.layers && !this.dom)?1:0; 
+    this.bw=(this.ie5 || this.ie4 || this.ns4 || this.ns5) 
+    return this 
+} 
+bw=new verifyCompatibleBrowser() 
+ 
+ 
+var speed=1 
+ 
+var loop, timer 
+ 
+function ConstructObject(obj,nest){ 
+    nest=(!nest) ? '':'document.'+nest+'.' 
+    this.el=bw.dom?document.getElementById(obj):bw.ie4?document.all[obj]:bw.ns4?eval(nest+'document.'+obj):0; 
+    this.css=bw.dom?document.getElementById(obj).style:bw.ie4?document.all[obj].style:bw.ns4?eval(nest+'document.'+obj):0; 
+    this.scrollHeight=bw.ns4?this.css.document.height:this.el.offsetHeight 
+    this.clipHeight=bw.ns4?this.css.clip.height:this.el.offsetHeight 
+    this.up=MoveAreaUp;this.down=MoveAreaDown; 
+    this.MoveArea=MoveArea; this.x; this.y; 
+    this.obj = obj + "Object" 
+    eval(this.obj + "=this") 
+    return this 
+} 
+function MoveArea(x,y){ 
+    this.x=x;this.y=y 
+    this.css.left=this.x 
+    this.css.top=this.y 
+} 
+ 
+function MoveAreaDown(move){ 
+	if(this.y>-this.scrollHeight+objContainer.clipHeight){ 
+    this.MoveArea(0,this.y-move) 
+    if(loop) setTimeout(this.obj+".down("+move+")",speed) 
+	} 
+} 
+function MoveAreaUp(move){ 
+	if(this.y<0){ 
+    this.MoveArea(0,this.y-move) 
+    if(loop) setTimeout(this.obj+".up("+move+")",speed) 
+	} 
+} 
+ 
+function PerformScroll(speed){ 
+	if(initialised){ 
+		loop=true; 
+		if(speed>0) objScroller.down(speed) 
+		else objScroller.up(speed) 
+	} 
+} 
+ 
+function CeaseScroll(){ 
+    loop=false 
+    if(timer) clearTimeout(timer) 
+} 
+var initialised; 
+function InitialiseScrollableArea(){ 
+    objContainer=new ConstructObject('divContainer') 
+    objScroller=new ConstructObject('divContent','divContainer') 
+    objScroller.MoveArea(0,0) 
+    objContainer.css.visibility='visible' 
+    initialised=true; 
+} 
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+//-->
+    </script>
+
+    <script language="javascript" type="text/javascript">
+<!--
+function MM_reloadPage(init) {  //reloads the window if Nav4 resized
+  if (init==true) with (navigator) {if ((appName=="Netscape")&&(parseInt(appVersion)==4)) {
+    document.MM_pgW=innerWidth; document.MM_pgH=innerHeight; onresize=MM_reloadPage; }}
+  else if (innerWidth!=document.MM_pgW || innerHeight!=document.MM_pgH) location.reload();
+}
+MM_reloadPage(true);
+// -->
+    </script>
+
+</head>
+<body style="background-color: #C5BFAA" onload="preloadImages();InitialiseScrollableArea();MM_preloadImages('images/button-up.gif','images/button-down.gif','images/button-up.gif','images/button-down.gif')">
+    <table width="98%" style="height: 98%">
+        <tr>
+            <td valign="middle" valign="middle">
+                <table width="600" border="0" cellpadding="0" cellspacing="0" align="center">
+                    <tr>
+                        <td rowspan="15">
+                            <img src="images/hope_01.gif" width="234" height="351" alt="" /></td>
+                        <td style="background-image: url([images/hope_02.gif])">
+                            <div id="Layer2" style="position: absolute; width: 175px; height: 96px; z-index: 2">
+                                <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0"
+                                    width="176" height="94">
+                                    <param name="movie" value="flash/hope.swf" />
+                                    <param name="quality" value="high" />
+                                    <param name="wmode" value="transparent" />
+                                    <embed src="flash/hope.swf" quality="high" pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash"
+                                        type="application/x-shockwave-flash" width="176" height="94" wmode="transparent"></embed>
+                                </object>
+                            </div>
+                        </td>
+                        <td colspan="6" rowspan="6">
+                            <img src="images/hope_03.gif" width="337" height="238" alt="" /></td>
+                        <td>
+                            <img src="images/spacer.gif" width="1" height="24" alt="" /></td>
+                    </tr>
+                    <tr>
+                        <td style="background-image: url([images/hope_04.gif])">
+                            &nbsp;
+                        </td>
+                        <td>
+                            <img src="images/spacer.gif" width="1" height="39" alt="" /></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <img src="images/hope_05.gif" width="29" height="1" alt="" /></td>
+                        <td>
+                            <img src="images/spacer.gif" width="1" height="1" alt="" /></td>
+                    </tr>
+                    <tr>
+                        <td style="background-image: url([images/hope_06.gif])">
+                            <div id="Layer1" style="z-index: 1; width: 58px; position: absolute; height: 19px">
+                                <div id="divUpControl" style="z-index: 1; left: 129px; visibility: visible; width: 14px;
+                                    top: 229px; height: 14px">
+                                    <a onmouseover="PerformScroll(-2);MM_swapImage('one','','images/button-up.gif',1)"
+                                        onmouseout="CeaseScroll();MM_swapImgRestore()" href="javascript:;">
+                                        <img height="13" alt="向上..." src="images/button-up1.gif" width="13" border="0" name="one" /></a>
+                                </div>
+                                <div id="divDownControl" style="left: 150px; visibility: visible; width: 14px; top: 229px;
+                                    height: 14px">
+                                    <a onmouseover="PerformScroll(1);MM_swapImage('two','','images/button-down.gif',1)"
+                                        onmouseout="CeaseScroll();MM_swapImgRestore()" href="javascript:;">
+                                        <img height="13" alt="向下..." src="images/button-down1.gif" width="13" border="0"
+                                            name="two" />
+                                    </a>
+                                </div>
+                                <div id="divContainer" style="visibility: visible; width: 167px; height: 184px; left: 10px">
+                                    <div id="divContent" style="">
+                                        &nbsp;&nbsp;&nbsp;&nbsp;<font color="#993300"><b>因为没有故事</b></font><br />
+                                        &nbsp;&nbsp;&nbsp;&nbsp;只有孤独罢了，只有感伤罢了，只有无奈罢了。
+                                        <br />
+                                        这个年纪本不该有那么多苦闷，本不该有那么多悲伤。是因为心里的真还没有变成假。
+                                        <br />
+                                        也曾在心里流血的时候依旧把头抬得很高，不管你怎样得清高与孤傲，你总是要静下心来找一张纸，一只笔，面对一片空白倾诉自己。
+                                        <br />
+                                        也曾恨自己没用，一度封闭自己拒绝一切安慰的话语和微笑。却总是听见有一个声音在说：“即便是大海里的一滴浪花也有着自己的晶莹美丽。
+                                        <br />
+                                        打开你的门，让风伴着鸟语花香吹进来。
+                                        <br />
+                                        打开你的门，让阳光温柔的洒进来。
+                                        <br />
+                                        打开你的门，不要拒绝朋友，不要拒绝帮助……
+                                        <br />
+                                        打开你的门，这个世界如此精彩。
+                                        <br />
+                                        只有归鸟了，只有梧桐了，只有闪烁的群星了。
+                                        <br />
+                                        朋友们都去了远方，没有什么好难过，没有什么不舍。我们因为年轻，所以流浪。
+                                        <br />
+                                        群星络连的感应线，我已抓住了起点，是否已有人握住终端。而当我倾听，就能听到你漂泊的大海的声音。那是冰心的轻语：“哪一颗星没有光，哪一朵花没有香，哪一次我的思潮里，没有你波涛的轻响。”
+                                        <br />
+                                        只有摇手了，只有只有灯光了，只有胖起来的月亮了。
+                                        <br />
+                                        窗前的玫瑰在宁静中挥洒浪漫，不再寂寞的开放，孤独的凋零。始终将纯净如水深埋心底，只在乎真诚与永恒。因为花季的主题是盛开，青春的主题是歌唱。
+                                        <br />
+                                        而青春是本难懂的书，需要我们倾注全部热情去诠释，需要我们把真实写在脸上，把自然融入生活。就把悲伤的梦留给昨夜，把希望留给芬芳的丁香，如把泪留给海，把风留给海上的帆……
+                                        <br />
+                                        只有黑夜了，只有虫鸣了，只有逐渐睡去的人儿了。
+                                        <br />
+                                        别问自己有什么。我们拥有年轻，还有时间。所以我能等待，等待那一刻，灵光乍现，天使飞翔于彩虹的天空，我的灵魂在天堂游走。上帝赐予我“诺亚的方舟”，我将载着生命的全部珍贵离开人世间，走遍全世界。
+                                        <br />
+                                        所以我向往，向往未来的每一天，向往能历经磨难后傲视群雄，向往轰轰烈烈，也向往云淡风轻……
+                                        <br />
+                                        我们爱做梦，我们爱狂想，那是因为我们还没有故事，那是因为我们还年少轻狂。而生命中有会有多少如这般真实而纯洁的风景呢？
+                                        <br />
+                                        那些没有故事的日子，我总会满怀感念的想起。</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <img src="images/spacer.gif" width="1" height="34" alt="" /></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <img src="images/hope_07.gif" width="29" height="27" alt="" /></td>
+                        <td>
+                            <img src="images/spacer.gif" width="1" height="27" alt="" /></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="10">
+                            <img src="images/hope_08.gif" width="29" height="226" alt="" /></td>
+                        <td>
+                            <img src="images/spacer.gif" width="1" height="113" alt="" /></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" rowspan="5">
+                            <img name="hope_09" src="images/hope_09.gif" width="252" height="58" alt="" /></td>
+                        <td colspan="3">
+                            <a href="memory.html" onmouseover="changeImages('hope_09', 'images/hope_09-hope_10_over.gif', 'hope_10', 'images/hope_10-over.gif', 'hope_17', 'images/hope_17-hope_10_over.gif'); return true;"
+                                onmouseout="changeImages('hope_09', 'images/hope_09.gif', 'hope_10', 'images/hope_10.gif', 'hope_17', 'images/hope_17.gif'); return true;">
+                                <img name="hope_10" src="images/hope_10.gif" width="53" height="17" border="0" alt="不变的挚爱" /></a></td>
+                        <td rowspan="9">
+                            <img src="images/hope_11.gif" width="32" height="113" alt="" /></td>
+                        <td>
+                            <img src="images/spacer.gif" width="1" height="17" alt="" /></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                            <img src="images/hope_12.gif" width="53" height="4" alt="" /></td>
+                        <td>
+                            <img src="images/spacer.gif" width="1" height="4" alt="" /></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                            <a href="yellow.html">
+                                <img src="images/hope_13.gif" width="53" height="16" alt="心中那对成功的希冀" border="0" /></a></td>
+                        <td>
+                            <img src="images/spacer.gif" width="1" height="16" alt="" /></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                            <img src="images/hope_14.gif" width="53" height="5" alt="" /></td>
+                        <td>
+                            <img src="images/spacer.gif" width="1" height="5" alt="" /></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <a href="life.html" onmouseover="changeImages('hope_09', 'images/hope_09-hope_15_over.gif', 'hope_15', 'images/hope_15-over.gif', 'hope_17', 'images/hope_17-hope_10_over.gif'); return true;"
+                                onmouseout="changeImages('hope_09', 'images/hope_09.gif', 'hope_15', 'images/hope_15.gif', 'hope_17', 'images/hope_17.gif'); return true;">
+                                <img name="hope_15" src="images/hope_15.gif" width="28" height="16" border="0" alt="热爱生活" /></a></td>
+                        <td rowspan="5">
+                            <img src="images/hope_16.gif" width="25" height="71" alt="" /></td>
+                        <td>
+                            <img src="images/spacer.gif" width="1" height="16" alt="" /></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="4">
+                            <img name="hope_17" src="images/hope_17.gif" width="242" height="55" alt="" /></td>
+                        <td colspan="2">
+                            <img src="images/hope_18.gif" width="26" height="16" alt="向往美好" /></td>
+                        <td rowspan="2">
+                            <img src="images/hope_19.gif" width="12" height="20" alt="" /></td>
+                        <td>
+                            <img src="images/spacer.gif" width="1" height="16" alt="" /></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <img src="images/hope_20.gif" width="26" height="4" alt="" /></td>
+                        <td>
+                            <img src="images/spacer.gif" width="1" height="4" alt="" /></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2">
+                            <img name="hope_21" src="images/hope_21.gif" width="10" height="35" alt="" /></td>
+                        <td colspan="2">
+                            <a href="wish.html" onmouseover="changeImages('hope_17', 'images/hope_17-hope_10_over.gif', 'hope_21', 'images/hope_21-hope_22_over.gif', 'hope_22', 'images/hope_22-over.gif'); return true;"
+                                onmouseout="changeImages('hope_17', 'images/hope_17.gif', 'hope_21', 'images/hope_21.gif', 'hope_22', 'images/hope_22.gif'); return true;">
+                                <img name="hope_22" src="images/hope_22.gif" width="28" height="17" border="0" alt="希望成功" /></a></td>
+                        <td>
+                            <img src="images/spacer.gif" width="1" height="17" alt="" /></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <img src="images/hope_23.gif" width="28" height="18" alt="" /></td>
+                        <td>
+                            <img src="images/spacer.gif" width="1" height="18" alt="" /></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <img src="images/spacer.gif" width="234" height="1" alt="" /></td>
+                        <td>
+                            <img src="images/spacer.gif" width="29" height="1" alt="" /></td>
+                        <td>
+                            <img src="images/spacer.gif" width="242" height="1" alt="" /></td>
+                        <td>
+                            <img src="images/spacer.gif" width="10" height="1" alt="" /></td>
+                        <td>
+                            <img src="images/spacer.gif" width="16" height="1" alt="" /></td>
+                        <td>
+                            <img src="images/spacer.gif" width="12" height="1" alt="" /></td>
+                        <td>
+                            <img src="images/spacer.gif" width="25" height="1" alt="" /></td>
+                        <td>
+                            <img src="images/spacer.gif" width="32" height="1" alt="" /></td>
+                        <td>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

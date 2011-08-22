@@ -1,0 +1,368 @@
+<html>
+<head>
+    <title>自由平等</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+    <link href="css/peer.css" type="text/css" rel="stylesheet" />
+    <style type="text/css">#divUpControl {
+	Z-INDEX: 1; LEFT: 10px; WIDTH: 320px; POSITION: absolute; TOP: 10px; TEXT-ALIGN: right
+}
+#divDownControl {
+	Z-INDEX: 1; LEFT: 10px; WIDTH: 320px; POSITION: absolute; TOP: 270px; TEXT-ALIGN: right
+}
+#divContainer {
+	LEFT: 10px; VISIBILITY: hidden; OVERFLOW: hidden; WIDTH: 320px; CLIP: rect(0px 320px 240px 0px); POSITION: absolute; TOP: 30px; HEIGHT: 240px
+}
+#divContent {
+	LEFT: 0px; POSITION: absolute; TOP: 0px
+}
+</style>
+
+    <script type="text/javascript">
+<!--
+
+function newImage(arg) {
+	if (document.images) {
+		rslt = new Image();
+		rslt.src = arg;
+		return rslt;
+	}
+}
+
+function changeImages() {
+	if (document.images && (preloadFlag == true)) {
+		for (var i=0; i<changeImages.arguments.length; i+=2) {
+			document[changeImages.arguments[i]].src = changeImages.arguments[i+1];
+		}
+	}
+}
+
+var preloadFlag = false;
+function preloadImages() {
+	if (document.images) {
+		peer_01_peer_03_over = newImage("images/peer_01-peer_03_over.gif");
+		peer_07_peer_12_over = newImage("images/peer_07-peer_12_over.gif");
+		peer_07_peer_15_over = newImage("images/peer_07-peer_15_over.gif");
+		peer_20_peer_03_over = newImage("images/peer_20-peer_03_over.gif");
+		preloadFlag = true;
+	}
+}
+
+// -->
+    </script>
+
+    <script language="javascript" type="text/javascript">
+function verifyCompatibleBrowser(){ 
+    this.ver=navigator.appVersion 
+    this.dom=document.getElementById?1:0 
+    this.ie5=(this.ver.indexOf("MSIE 5")>-1 && this.dom)?1:0; 
+    this.ie4=(document.all && !this.dom)?1:0; 
+    this.ns5=(this.dom && parseInt(this.ver) >= 5) ?1:0; 
+ 
+    this.ns4=(document.layers && !this.dom)?1:0; 
+    this.bw=(this.ie5 || this.ie4 || this.ns4 || this.ns5) 
+    return this 
+} 
+bw=new verifyCompatibleBrowser() 
+ 
+ 
+var speed=1 
+ 
+var loop, timer 
+ 
+function ConstructObject(obj,nest){ 
+    nest=(!nest) ? '':'document.'+nest+'.' 
+    this.el=bw.dom?document.getElementById(obj):bw.ie4?document.all[obj]:bw.ns4?eval(nest+'document.'+obj):0; 
+    this.css=bw.dom?document.getElementById(obj).style:bw.ie4?document.all[obj].style:bw.ns4?eval(nest+'document.'+obj):0; 
+    this.scrollHeight=bw.ns4?this.css.document.height:this.el.offsetHeight 
+    this.clipHeight=bw.ns4?this.css.clip.height:this.el.offsetHeight 
+    this.up=MoveAreaUp;this.down=MoveAreaDown; 
+    this.MoveArea=MoveArea; this.x; this.y; 
+    this.obj = obj + "Object" 
+    eval(this.obj + "=this") 
+    return this 
+} 
+function MoveArea(x,y){ 
+    this.x=x;this.y=y 
+    this.css.left=this.x 
+    this.css.top=this.y 
+} 
+ 
+function MoveAreaDown(move){ 
+	if(this.y>-this.scrollHeight+objContainer.clipHeight){ 
+    this.MoveArea(0,this.y-move) 
+    if(loop) setTimeout(this.obj+".down("+move+")",speed) 
+	} 
+} 
+function MoveAreaUp(move){ 
+	if(this.y<0){ 
+    this.MoveArea(0,this.y-move) 
+    if(loop) setTimeout(this.obj+".up("+move+")",speed) 
+	} 
+} 
+ 
+function PerformScroll(speed){ 
+	if(initialised){ 
+		loop=true; 
+		if(speed>0) objScroller.down(speed) 
+		else objScroller.up(speed) 
+	} 
+} 
+ 
+function CeaseScroll(){ 
+    loop=false 
+    if(timer) clearTimeout(timer) 
+} 
+var initialised; 
+function InitialiseScrollableArea(){ 
+    objContainer=new ConstructObject('divContainer') 
+    objScroller=new ConstructObject('divContent','divContainer') 
+    objScroller.MoveArea(0,0) 
+    objContainer.css.visibility='visible' 
+    initialised=true; 
+} 
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+//-->
+    </script>
+
+    <script language="javascript" type="text/javascript">
+<!--
+function MM_reloadPage(init) {  //reloads the window if Nav4 resized
+  if (init==true) with (navigator) {if ((appName=="Netscape")&&(parseInt(appVersion)==4)) {
+    document.MM_pgW=innerWidth; document.MM_pgH=innerHeight; onresize=MM_reloadPage; }}
+  else if (innerWidth!=document.MM_pgW || innerHeight!=document.MM_pgH) location.reload();
+}
+MM_reloadPage(true);
+// -->
+    </script>
+
+</head>
+<body bgcolor="#EBE2DE" onload="preloadImages();InitialiseScrollableArea();MM_preloadImages('images/button-up.gif','images/button-down.gif','images/button-up.gif','images/button-down.gif')">
+    <table style="width: 98%; height: 98%">
+        <tr>
+            <td valign="middle" align="center">
+                <table width="600" border="0" cellpadding="0" cellspacing="0" align="center">
+                    <tr>
+                        <td colspan="12">
+                            <img name="peer_01" src="images/peer_01.gif" width="600" height="33" alt="" /></td>
+                        <td>
+                            <img src="images/spacer.gif" width="1" height="33" alt="" /></td>
+                    </tr>
+                    <tr>
+                        <td colspan="10">
+                            <img src="images/peer_02.gif" width="565" height="17" alt="" /></td>
+                        <td rowspan="2">
+                            <a href="yellow.html" onmouseover="changeImages('peer_01', 'images/peer_01-peer_03_over.gif', 'peer_20', 'images/peer_20-peer_03_over.gif'); return true;"
+                                onmouseout="changeImages('peer_01', 'images/peer_01.gif', 'peer_20', 'images/peer_20.gif'); return true;">
+                                <img src="images/peer_03.gif" width="15" height="50" border="0" alt="心中那对成功的希冀" /></a></td>
+                        <td rowspan="10">
+                            <img src="images/peer_04.gif" width="20" height="212" alt="" /></td>
+                        <td>
+                            <img src="images/spacer.gif" width="1" height="17" alt="" /></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="10">
+                            <img src="images/peer_05.gif" width="273" height="360" alt="" /></td>
+                        <td rowspan="2" background="images/peer_06.gif">
+                            <table width="75%">
+                                <tr>
+                                    <td>
+                                        <div id="Layer1" style="z-index: 1; width: 58px; position: absolute; height: 19px">
+                                            <div id="divUpControl" style="z-index: 1; left: 129px; visibility: visible; width: 14px;
+                                                top: 260px; height: 14px">
+                                                <a onmouseover="PerformScroll(-2);MM_swapImage('one','','images/button-up.gif',1)"
+                                                    onmouseout="CeaseScroll();MM_swapImgRestore()" href="javascript:;">
+                                                    <img height="13" alt="向上..." src="images/button-up1.gif" width="13" border="0" name="one" /></a>
+                                            </div>
+                                            <div id="divDownControl" style="left: 150px; visibility: visible; width: 14px; top: 260px;
+                                                height: 14px">
+                                                <a onmouseover="PerformScroll(1);MM_swapImage('two','','images/button-down.gif',1)"
+                                                    onmouseout="CeaseScroll();MM_swapImgRestore()" href="javascript:;">
+                                                    <img height="13" alt="向下..." src="images/button-down1.gif" width="13" border="0"
+                                                        name="two" />
+                                                </a>
+                                            </div>
+                                            <div id="divContainer" style="visibility: visible; width: 169px; height: 203px; left: 10px">
+                                                <div id="divContent" style="">
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#660000"><b>人生如鱼</b></font><br />
+                                                    鱼的一生是那样的短暂，他们的生存目标是什么呢？也许有人会认为：他们只不过是水中之物罢了，还不就是给人吃？真的如此单纯吗？从鲇鱼的身上，我得到了启示——我饲养了三条鲇鱼，觉得它们该为人民服务了，便把它们端到了手术台——开刀宰鱼。我走到一旁做准备功夫，回去时，只剩两条鱼在那里，而其中有一条还在地上不停打滚。还有一条呢？在人间蒸发了吗？我在手术台旁寻遍了鲇鱼的足迹，可依然无影无踪。但我有点线索了——排水道！它虽然逃过此劫，但依旧是生死未卜。我把在地上做垂死挣扎的鲇鱼抓回盆里。也许把它宰了较为残忍，但我不忍心把它放进排水道让它自生自灭，那对它更是何等的折磨！（我舍不得，太浪费了。）<br />
+                                                    看着那条仍在水盆里弹跳的鲇鱼以及另一只自由快活地游动的鲇鱼，回想起刚刚的那一幕，实在发人深思……
+                                                    <br />
+                                                    它们为什么要逃跑？难道单单是靠着一种生存的本能？那条跑掉的鲇鱼，或许它是胜利者。换个角度来看，它却是最失败的一个。它找到了出路，是一步达底的出路，通向地狱的最佳方式。天哪！那是排水道啊！可不是什么小河大江的。也许它不晓得，但我清楚知道，即使它能活下来也有八成残缺！！而另一条逃跑的鲇鱼则不幸也幸运。它达不到自己的主观意愿，失望地被打回原形，那是不幸；它避免了更痛苦的折磨，那是幸运。那一切都是客观因素造成的，可说是“命由天定”，也是不幸中之大幸了。但它的幸运更在于它给自己留下了一条退路！
+                                                    <br />
+                                                    两条鱼都付诸了努力，虽然结果迥异，但都显露出万物生灵的求生意识。唯独那一条却在水盆里快活地游逸。难道它就连一点求生意识也没有？它生存还有何意思？！不，不完全是这样！这也是它的选择。跳进排水道就叫“壮烈牺牲”！跳出水盆外就叫“英勇就义”！先死的就比后死的有意义？岂非五十步笑百步？更何况当一天和尚撞一天钟，得过且过也不无实际意义。为什么不好好保存鲜嫩鱼味，为人们提供最佳营养呢？那岂不更有意义！那才是“死得其所”！<br />
+                                                    水中之物既然如此，人又如何呢？在生死攸关时，人也必须作出选择。但人是理性与感性的结晶体，更多因素趋使我们作出多样的选择。人与鱼的区别就在于此。朋友，在危难之际，你会做哪一条鲇鱼呢？<br />
+                                                    只夜真切 --随笔 敬超于 2001.07.24 08:57 发表在随笔小札
+                                                    <p>
+                                                        常常不肯早早入眠，去作那封闲的，安谧的梦。月色象一位温柔多情的少女，具有难以言传的神韵，若凭探询的眼光和莹洁的心灵，你会轻易割舍对月之恋情吗？<br />
+                                                        柔肠蜿延的草间花间，人影卓卓，树荫墙隅，低语叹呤。躇蹰于苍茫的夜下，与星月相依，可以梳理纷乱的思绪，咀嚼月光如少女般柔肠的温馨，什么都不可以想，什么可以不想，是难得的自我回归的小天地。<br />
+                                                        于是，我便在温柔的月夜路踽踽独行。<br />
+                                                        恨透了一切虚假的事物，想寻求一种灵空的真实么？举首望天，嫦娥皎皎，转盼多情，蟾宫清凉寂寞，琼楼城郭，不胜寒恻；白云悄悄游移，宛若我懒散的脚步。间或一两声布谷鸟哀鸣，使月色恍恍惚惚，明暗难测。风，恬适清淡，轻轻的，静静地，生得这般安谐！花叶草间，露珠悄然滑落，晶莹剔透。原野古典幽深，撩得绕的雾纱缓缓地升腾，仿佛只有梦境才这样真切。
+                                                        <br />
+                                                        月凉如水。那原野间，或许还有青春的萌动，只不肯轻意再作群体的飞跃，仿佛要幽了去，独享天伦之乐，谁叫这夜是如此之静谧呢？<br />
+                                                        各人有所思，人人美丽，人人纯洁。寂寞不可言表的和谐，无须诘问，静默中无限的创造是假是真。只此眉梢轻皱，唇语微哂，已可诠释无穷奥绪。将它们全部深深地蕴伏于灵魂的微旅之中。<br />
+                                                        青年厌恶的是平安，自喜的是放纵与豪迈。如此夜色，怎消受得！放歌一曲，横笛斜倚，音符旋即凌云，一圈圈似情似爱，似引惑似招唤。柔雾般舒展开去……<br />
+                                                        青年的幻灭，便是人生悲剧之悲。夜，深沉；星之光，月之光，露珠之光，没入苍茫的辉晕之中。<br />
+                                                        于是，我暮然感觉夜游乃是可爱的好物了。月朦胧，树蒙胧人亦朦胧，却依稀恍惚，如诗如画。那些龊龌骚动，荒唐的意念不可以在此洗涤净化么？<br />
+                                                        夜睡人静，今晚或有好梦吧？但愿没有！只是粗略过滤了细密的情感。若以梦之销魂，不白白消受我空灵的魂魄么？<br />
+                                                        “或许是为觅诗而来──其实不是，明天也许又会来的。”我默默地对自己说。<br />
+                                                        让一切都自生自来罢！我无须月光波心的倩影，也未必须花前缠绵的咏叹，只宛若冥冥之中飘逸的仙神，自由自在地赏识天下一切可爱的生灵，想象他们，抚摸他们，爱他们。在我自己，只消纯洁清白。也无须一个动听的名词。──我就是我。<br />
+                                                        如果要我作诗，便只作：──象夜色般如画如梦，我便真实。</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td colspan="6" rowspan="2">
+                            <img name="peer_07" src="images/peer_07.gif" width="240" height="37" alt="" /></td>
+                        <td rowspan="4">
+                            <img src="images/peer_08.gif" width="15" height="50" alt="不变的挚爱" /></td>
+                        <td rowspan="9">
+                            <img src="images/peer_09.gif" width="2" height="195" alt="" /></td>
+                        <td>
+                            <img src="images/spacer.gif" width="1" height="33" alt="" /></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="8">
+                            <img src="images/peer_10.gif" width="15" height="162" alt="" /></td>
+                        <td>
+                            <img src="images/spacer.gif" width="1" height="4" alt="" /></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" rowspan="8">
+                            <img src="images/peer_11.gif" width="224" height="323" alt="" /></td>
+                        <td rowspan="4">
+                            <a href="memory.html" onmouseover="changeImages('peer_07', 'images/peer_07-peer_12_over.gif', 'peer_20', 'images/peer_20-peer_03_over.gif'); return true;"
+                                onmouseout="changeImages('peer_07', 'images/peer_07.gif', 'peer_20', 'images/peer_20.gif'); return true;">
+                                <img src="images/peer_12.gif" width="14" height="26" border="0" alt="记忆峥嵘" /></a></td>
+                        <td colspan="4">
+                            <img src="images/peer_13.gif" width="37" height="3" alt="" /></td>
+                        <td>
+                            <img src="images/spacer.gif" width="1" height="3" alt="" /></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" rowspan="2">
+                            <img src="images/peer_14.gif" width="15" height="17" alt="" /></td>
+                        <td rowspan="4">
+                            <a href="city.html" onmouseover="changeImages('peer_07', 'images/peer_07-peer_15_over.gif', 'peer_20', 'images/peer_20-peer_03_over.gif'); return true;"
+                                onmouseout="changeImages('peer_07', 'images/peer_07.gif', 'peer_20', 'images/peer_20.gif'); return true;">
+                                <img src="images/peer_15.gif" width="14" height="26" border="0" alt="飘泊寻觅" /></a></td>
+                        <td rowspan="6">
+                            <img src="images/peer_16.gif" width="8" height="155" alt="" /></td>
+                        <td>
+                            <img src="images/spacer.gif" width="1" height="10" alt="" /></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="5">
+                            <img src="images/peer_17.gif" width="15" height="145" alt="" /></td>
+                        <td>
+                            <img src="images/spacer.gif" width="1" height="7" alt="" /></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="4">
+                            <img src="images/peer_18.gif" width="2" height="138" alt="" /></td>
+                        <td rowspan="3">
+                            <img src="images/peer_19.gif" width="13" height="28" alt="自由平等" /></td>
+                        <td>
+                            <img src="images/spacer.gif" width="1" height="6" alt="" /></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="3">
+                            <img name="peer_20" src="images/peer_20.gif" width="14" height="132" alt="" /></td>
+                        <td>
+                            <img src="images/spacer.gif" width="1" height="3" alt="" /></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2">
+                            <img src="images/peer_21.gif" width="14" height="129" alt="" /></td>
+                        <td>
+                            <img src="images/spacer.gif" width="1" height="19" alt="" /></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <img src="images/peer_22.gif" width="13" height="110" alt="" /></td>
+                        <td>
+                            <img src="images/spacer.gif" width="1" height="110" alt="" /></td>
+                    </tr>
+                    <tr>
+                        <td colspan="9" background="images/peer_23.gif">
+                            <table width="75%" style="height: 107px">
+                                <tr>
+                                    <td height="32">
+                                        <div id="Layer2" style="position: absolute; width: 117px; height: 98px; z-index: 2">
+                                            <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0"
+                                                width="135" height="105">
+                                                <param name="movie" value="flash/life.swf" />
+                                                <param name="quality" value="high" />
+                                                <param name="wmode" value="transparent" />
+                                                <embed src="flash/life.swf" quality="high" pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash"
+                                                    type="application/x-shockwave-flash" width="135" height="105" wmode="transparent"></embed>
+                                            </object>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        &nbsp;</td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td>
+                            <img src="images/spacer.gif" width="1" height="165" alt="" /></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <img src="images/spacer.gif" width="273" height="1" alt="" /></td>
+                        <td>
+                            <img src="images/spacer.gif" width="35" height="1" alt="" /></td>
+                        <td>
+                            <img src="images/spacer.gif" width="189" height="1" alt="" /></td>
+                        <td>
+                            <img src="images/spacer.gif" width="14" height="1" alt="" /></td>
+                        <td>
+                            <img src="images/spacer.gif" width="2" height="1" alt="" /></td>
+                        <td>
+                            <img src="images/spacer.gif" width="13" height="1" alt="" /></td>
+                        <td>
+                            <img src="images/spacer.gif" width="14" height="1" alt="" /></td>
+                        <td>
+                            <img src="images/spacer.gif" width="8" height="1" alt="" /></td>
+                        <td>
+                            <img src="images/spacer.gif" width="15" height="1" alt="" /></td>
+                        <td>
+                            <img src="images/spacer.gif" width="2" height="1" alt="" /></td>
+                        <td>
+                            <img src="images/spacer.gif" width="15" height="1" alt="" /></td>
+                        <td>
+                            <img src="images/spacer.gif" width="20" height="1" alt="" /></td>
+                        <td>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

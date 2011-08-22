@@ -1,0 +1,158 @@
+﻿BODY
+{
+	background-color: #ffffff;
+	SCROLLBAR-DARKSHADOW-COLOR: #FF98BB;
+	SCROLLBAR-BASE-COLOR: #000000;
+	SCROLLBAR-FACE-COLOR: #FFDAED;
+	SCROLLBAR-HIGHLIGHT-COLOR: #FFDAED;
+	SCROLLBAR-3DLIGHT-COLOR: #F8475B;
+	SCROLLBAR-ARROW-COLOR: #CB3366;
+	SCROLLBAR-SHADOW-COLOR: #F8475B;
+}
+.calendar
+{
+	color: #8F153E;
+	font-weight: bold;
+	text-align: center;
+	font-size: 8pt;
+}
+.calendar-day
+{
+	font-weight: bold;
+	font-size: 8pt;
+	color: #FF74A0;
+	font-family: Arial, Helvetica, sans-serif;
+	text-align: center;
+}
+.calendar-weekdays
+{
+	color: #8F153E;
+	font-weight: bold;
+	text-align: center;
+	background-color: #FFDDEE;
+}
+.calendar-weeked
+{
+	color: #8F153E;
+	text-align: center;
+	background-color: #FFE9F4;
+	font-weight: bold;
+	font-size: 8pt;
+	font-family: Arial, Helvetica, sans-serif;
+}
+.calendar-today
+{
+	font-weight: bold;
+	font-size: 8pt;
+	text-align: center;
+	color: #000000;
+	font-family: Arial, Helvetica, sans-serif;
+}
+.calendar-link
+{
+	font-weight: bold;
+	font-size: 8pt;
+	text-align: center;
+	color: #000000;
+	font-family: Arial, Helvetica, sans-serif;
+}
+.calendar-thisday
+{
+	font-weight: bold;
+	font-size: 8pt;
+	text-align: center;
+	color: #000000;
+	font-family: Arial, Helvetica, sans-serif;
+}
+.postTime
+{
+	font-weight: bold;
+	font-size: 8pt;
+	color: #FFA2BF;
+	font-family: Arial, Helvetica, sans-serif;
+}
+.class
+{
+	font-weight: bold;
+	color: #DC1B5C;
+}
+A.class:link
+{
+	color: #DC1B5C;
+	text-decoration: underline;
+}
+A.class:hover
+{
+	color: #DC1B5C;
+	text-decoration: none;
+}
+A.class:visited
+{
+	color: #DC1B5C;
+}
+.panel
+{
+}
+.loadingContent
+{
+	height: 25%;
+	width: 100%;
+	position: absolute;
+	top: 40%;
+	left: 0%;
+	text-align: center;
+	z-index: 0;
+}
+.loadingImage
+{
+	background: transparent url(peachblow_loading.gif) no-repeat scroll 0pt;
+	height: 70px;
+	width: 150px;
+}
+.headerBack
+{
+	background-color: #CC3467;
+}
+.headerSplitLine
+{
+	background-color: #F5B6D5;
+}
+.headerBottomLine
+{
+	background-color: #F36494;
+}
+.headerTitleLine
+{
+	background-color: #FFDDEE;
+}
+.headerSlogan
+{
+	color: #ffffff;
+	font-weight: bold;
+	margin-left: 10px;
+}
+.sidebarInfoFont
+{
+	color: #BA184F;
+}
+.blogTitle
+{
+	background-color: #FFBACF;
+}
+.blogContentBg
+{
+	background-color: #FFEBF5;
+}
+.blogLine
+{
+	background-color: #CD3367;
+}
+.blogAlertFont
+{
+	color: #FF0056;
+	font-weight:bold;
+}
+.contentTitle
+{
+	color: #454343;
+}

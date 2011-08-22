@@ -1,0 +1,355 @@
+<html>
+<head>
+    <title>希望</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+    <link href="css/wish.css" type="text/css" rel="stylesheet" />
+    <style type="text/css">#divUpControl {
+	Z-INDEX: 1; LEFT: 10px; WIDTH: 320px; POSITION: absolute; TOP: 10px; TEXT-ALIGN: right
+}
+#divDownControl {
+	Z-INDEX: 1; LEFT: 10px; WIDTH: 320px; POSITION: absolute; TOP: 270px; TEXT-ALIGN: right
+}
+#divContainer {
+	LEFT: 10px; VISIBILITY: hidden; OVERFLOW: hidden; WIDTH: 320px; CLIP: rect(0px 320px 240px 0px); POSITION: absolute; TOP: 30px; HEIGHT: 240px
+}
+#divContent {
+	LEFT: 0px; POSITION: absolute; TOP: 0px
+}
+</style>
+
+    <script type="text/javascript">
+<!--
+
+function newImage(arg) {
+	if (document.images) {
+		rslt = new Image();
+		rslt.src = arg;
+		return rslt;
+	}
+}
+
+function changeImages() {
+	if (document.images && (preloadFlag == true)) {
+		for (var i=0; i<changeImages.arguments.length; i+=2) {
+			document[changeImages.arguments[i]].src = changeImages.arguments[i+1];
+		}
+	}
+}
+
+var preloadFlag = false;
+function preloadImages() {
+	if (document.images) {
+		wish_02_wish_03_over = newImage("images/wish_02-wish_03_over.gif");
+		wish_03_over = newImage("images/wish_03-over.gif");
+		wish_08_wish_09_over = newImage("images/wish_08-wish_09_over.gif");
+		wish_08_wish_15_over = newImage("images/wish_08-wish_15_over.gif");
+		wish_09_over = newImage("images/wish_09-over.gif");
+		wish_13_wish_03_over = newImage("images/wish_13-wish_03_over.gif");
+		wish_15_over = newImage("images/wish_15-over.gif");
+		wish_18_wish_03_over = newImage("images/wish_18-wish_03_over.gif");
+		preloadFlag = true;
+	}
+}
+
+// -->
+    </script>
+
+    <script language="javascript" type="text/javascript">
+function verifyCompatibleBrowser(){ 
+    this.ver=navigator.appVersion 
+    this.dom=document.getElementById?1:0 
+    this.ie5=(this.ver.indexOf("MSIE 5")>-1 && this.dom)?1:0; 
+    this.ie4=(document.all && !this.dom)?1:0; 
+    this.ns5=(this.dom && parseInt(this.ver) >= 5) ?1:0; 
+ 
+    this.ns4=(document.layers && !this.dom)?1:0; 
+    this.bw=(this.ie5 || this.ie4 || this.ns4 || this.ns5) 
+    return this 
+} 
+bw=new verifyCompatibleBrowser() 
+ 
+ 
+var speed=1
+ 
+var loop, timer 
+ 
+function ConstructObject(obj,nest){ 
+    nest=(!nest) ? '':'document.'+nest+'.' 
+    this.el=bw.dom?document.getElementById(obj):bw.ie4?document.all[obj]:bw.ns4?eval(nest+'document.'+obj):0; 
+    this.css=bw.dom?document.getElementById(obj).style:bw.ie4?document.all[obj].style:bw.ns4?eval(nest+'document.'+obj):0; 
+    this.scrollHeight=bw.ns4?this.css.document.height:this.el.offsetHeight 
+    this.clipHeight=bw.ns4?this.css.clip.height:this.el.offsetHeight 
+    this.up=MoveAreaUp;this.down=MoveAreaDown; 
+    this.MoveArea=MoveArea; this.x; this.y; 
+    this.obj = obj + "Object" 
+    eval(this.obj + "=this") 
+    return this 
+} 
+function MoveArea(x,y){ 
+    this.x=x;this.y=y 
+    this.css.left=this.x 
+    this.css.top=this.y 
+} 
+ 
+function MoveAreaDown(move){ 
+	if(this.y>-this.scrollHeight+objContainer.clipHeight){ 
+    this.MoveArea(0,this.y-move) 
+    if(loop) setTimeout(this.obj+".down("+move+")",speed) 
+	} 
+} 
+function MoveAreaUp(move){ 
+	if(this.y<0){ 
+    this.MoveArea(0,this.y-move) 
+    if(loop) setTimeout(this.obj+".up("+move+")",speed) 
+	} 
+} 
+ 
+function PerformScroll(speed){ 
+	if(initialised){ 
+		loop=true; 
+		if(speed>0) objScroller.down(speed) 
+		else objScroller.up(speed) 
+	} 
+} 
+ 
+function CeaseScroll(){ 
+    loop=false 
+    if(timer) clearTimeout(timer) 
+} 
+var initialised; 
+function InitialiseScrollableArea(){ 
+    objContainer=new ConstructObject('divContainer') 
+    objScroller=new ConstructObject('divContent','divContainer') 
+    objScroller.MoveArea(0,0) 
+    objContainer.css.visibility='visible' 
+    initialised=true; 
+} 
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+//-->
+    </script>
+
+    <script language="javascript" type="text/javascript">
+<!--
+function MM_reloadPage(init) {  //reloads the window if Nav4 resized
+  if (init==true) with (navigator) {if ((appName=="Netscape")&&(parseInt(appVersion)==4)) {
+    document.MM_pgW=innerWidth; document.MM_pgH=innerHeight; onresize=MM_reloadPage; }}
+  else if (innerWidth!=document.MM_pgW || innerHeight!=document.MM_pgH) location.reload();
+}
+MM_reloadPage(true);
+// -->
+    </script>
+
+</head>
+<body bgcolor="#bab198" onload="preloadImages();InitialiseScrollableArea();MM_preloadImages('images/button-up.gif','images/button-down.gif','images/button-up.gif','images/button-down.gif')">
+    <table style="height: 98%; width: 98%">
+        <tr>
+            <td valign="middle" align="center">
+                <table width="600" border="0" cellpadding="0" cellspacing="0" align="center">
+                    <tr>
+                        <td colspan="11">
+                            <img src="images/wish_01.gif" width="600" height="27" alt="" /></td>
+                        <td>
+                            <img src="images/spacer.gif" width="1" height="27" alt="" /></td>
+                    </tr>
+                    <tr>
+                        <td colspan="5" rowspan="5">
+                            <img name="wish_02" src="images/wish_02.gif" width="503" height="64" alt="" /></td>
+                        <td colspan="4">
+                            <a href="memory.html" onmouseover="changeImages('wish_02', 'images/wish_02-wish_03_over.gif', 'wish_03', 'images/wish_03-over.gif', 'wish_13', 'images/wish_13-wish_03_over.gif', 'wish_18', 'images/wish_18-wish_03_over.gif'); return true;"
+                                onmouseout="changeImages('wish_02', 'images/wish_02.gif', 'wish_03', 'images/wish_03.gif', 'wish_13', 'images/wish_13.gif', 'wish_18', 'images/wish_18.gif'); return true;">
+                                <img name="wish_03" src="images/wish_03.gif" width="51" height="14" border="0" alt="不变的挚爱" /></a></td>
+                        <td colspan="2" rowspan="4">
+                            <img src="images/wish_04.gif" width="46" height="48" alt="" /></td>
+                        <td>
+                            <img src="images/spacer.gif" width="1" height="14" alt="" /></td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">
+                            <img src="images/wish_05.gif" width="51" height="7" alt="" /></td>
+                        <td>
+                            <img src="images/spacer.gif" width="1" height="7" alt="" /></td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">
+                            <a href="yellow.html">
+                                <img src="images/wish_06.gif" width="51" height="16" alt="心中那对成功的希冀" border="0" /></a></td>
+                        <td>
+                            <img src="images/spacer.gif" width="1" height="16" alt="" /></td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">
+                            <img src="images/wish_07.gif" width="51" height="11" alt="" /></td>
+                        <td>
+                            <img src="images/spacer.gif" width="1" height="11" alt="" /></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" rowspan="5">
+                            <img name="wish_08" src="images/wish_08.gif" width="29" height="48" alt="" /></td>
+                        <td colspan="3">
+                            <a href="life.html" onmouseover="changeImages('wish_08', 'images/wish_08-wish_09_over.gif', 'wish_09', 'images/wish_09-over.gif', 'wish_13', 'images/wish_13-wish_03_over.gif', 'wish_18', 'images/wish_18-wish_03_over.gif'); return true;"
+                                onmouseout="changeImages('wish_08', 'images/wish_08.gif', 'wish_09', 'images/wish_09.gif', 'wish_13', 'images/wish_13.gif', 'wish_18', 'images/wish_18.gif'); return true;">
+                                <img name="wish_09" src="images/wish_09.gif" width="26" height="16" border="0" alt="热爱生活" /></a></td>
+                        <td rowspan="9">
+                            <img src="images/wish_10.gif" width="42" height="349" alt="" /></td>
+                        <td>
+                            <img src="images/spacer.gif" width="1" height="16" alt="" /></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="8" background="images/wish_11.gif">
+                            <div id="Layer2" style="position: absolute; width: 119px; height: 166px; z-index: 2">
+                                <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0"
+                                    width="122" height="165">
+                                    <param name="movie" value="flash/wish.swf" />
+                                    <param name="quality" value="high" />
+                                    <param name="wmode" value="transparent" />
+                                    <embed src="flash/wish.swf" quality="high" pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash"
+                                        type="application/x-shockwave-flash" width="122" height="165" wmode="transparent"></embed>
+                                </object>
+                            </div>
+                        </td>
+                        <td rowspan="2" background="images/wish_12.gif">
+                            <div id="Layer1" style="z-index: 1; width: 58px; position: absolute; height: 19px">
+                                <div id="divUpControl" style="z-index: 1; left: 129px; visibility: visible; width: 14px;
+                                    top: 260px; height: 14px">
+                                    <a onmouseover="PerformScroll(-2);MM_swapImage('one','','images/button-up.gif',1)"
+                                        onmouseout="CeaseScroll();MM_swapImgRestore()" href="javascript:;">
+                                        <img height="13" alt="向上..." src="images/button-up1.gif" width="13" border="0" name="one" /></a>
+                                </div>
+                                <div id="divDownControl" style="left: 150px; visibility: visible; width: 14px; top: 260px;
+                                    height: 14px">
+                                    <a onmouseover="PerformScroll(1);MM_swapImage('two','','images/button-down.gif',1)"
+                                        onmouseout="CeaseScroll();MM_swapImgRestore()" href="javascript:;">
+                                        <img height="13" alt="向下..." src="images/button-down1.gif" width="13" border="0"
+                                            name="two" />
+                                    </a>
+                                </div>
+                                <div id="divContainer" style="visibility: visible; width: 142px; height: 201px; top: 30px">
+                                    <div id="divContent" style="">
+                                        &nbsp;&nbsp;&nbsp;&nbsp;我希望成功，渴望幸福，但我并不寄望与天地的恩赐任何拥有多要艰辛的付出，也许是奢求，但这是我一生不懈的追求。相信执着积极的心态，乐观豁达的胸襟，对生活永远的热爱是我一生的财富。我相信能给我的家庭和未来的爱人带来幸福。
+                                        <br />
+                                        人生浮萍，永远漂泊，也曾想会有一双手放在我的掌中，十指相勾，可居岁月，一饭一蔬直至天荒地老；也曾以为。有一种玫瑰能在风急雨滴血长歌；也曾以为，有一种幸福能超越世间的个种情怀。昔日的种种幻梦和良愿经历了岁月的洗涤，而我依然执着。
+                                        <br />
+                                        岁月流逝，蓦然回首，已走过了二十一个春秋，依然再漂泊，再漂泊种执着的期待和寻觅，一个能风雨同舟，创造生活的人与我同行。然而我不奢望她的荣华富贵和沈鱼落雁的容颜。我渴望和期待的是成熟乐观。对生活坚持不懈拼搏和一颗相知相伴的心。我是一个平凡的人，我不能给她什么承诺。但我可以用我的心灵去告慰她的心身，我将用我的包容和深深的爱意去理解她，支持她，让她快乐和幸福。人海茫茫，相识是需要缘分和珍惜的，不知道我沉默的心灵和浪漫为谁开启。
+                                        <br />
+                                        曾经的付出与痛苦太多太多，黑暗中不知流过多少眼泪但是渴望被爱滋润的我一直舍不得放下这一切，总以为在等等再努力一下，让她感动的死心塌地心无旁鹜。我甚至相信了“精诚所致金石为开”这句不知害死了多少人的鬼话。我的痴迷我的挚着使我身上的绳结愈来愈难以解开这其中的滋味，你也许尝过，就好比人们再发现船舱漏水的时候，总不至于立刻弃船逃生，而是想尽一切办法去堵住缺口，可是多来不及了，只有被无情的海水淹没，爱与希望沉入海底，许久才会，也许永远多不会浮出海面。
+                                        <br />
+                                        再一行行的文字中，我无法描述自己，因为美丽与可爱，丑陋与脆弱，善与恶多凝聚在一起。蒙蔽了人们的眼睛使人无法分清美与丑，善与恶。你有没有听过雪花飘落的声音，你能不能感觉到花蕾在春风里慢慢开放，那种美妙的木叶清香，只要你肯去领略就会发生人生本来就是那么可爱，也是人之初的善良。
+                                        <br />
+                                        我是一个是实在在的人，有爱有恨真实得人，如果我们有几分相识，有几分默切，那我会期待你，期待你的到来，期待你与我同去寻觅人生的真谛，去共创生活的美好未来，这样人活这才使具有更大的意义。
+                                        <br />
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td colspan="3" rowspan="6">
+                            <img name="wish_13" src="images/wish_13.gif" width="242" height="54" alt="" /></td>
+                        <td colspan="3">
+                            <img src="images/wish_14.gif" width="26" height="10" alt="" /></td>
+                        <td>
+                            <img src="images/spacer.gif" width="1" height="10" alt="" /></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" rowspan="2">
+                            <a href="hope.html" onmouseover="changeImages('wish_08', 'images/wish_08-wish_15_over.gif', 'wish_13', 'images/wish_13-wish_03_over.gif', 'wish_15', 'images/wish_15-over.gif', 'wish_18', 'images/wish_18-wish_03_over.gif'); return true;"
+                                onmouseout="changeImages('wish_08', 'images/wish_08.gif', 'wish_13', 'images/wish_13.gif', 'wish_15', 'images/wish_15.gif', 'wish_18', 'images/wish_18.gif'); return true;">
+                                <img name="wish_15" src="images/wish_15.gif" width="26" height="16" border="0" alt="向往美好" /></a></td>
+                        <td>
+                            <img src="images/spacer.gif" width="1" height="11" alt="" /></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="6">
+                            <img src="images/wish_16.gif" width="34" height="312" alt="" /></td>
+                        <td>
+                            <img src="images/spacer.gif" width="1" height="5" alt="" /></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                            <img src="images/wish_17.gif" width="26" height="6" alt="" /></td>
+                        <td>
+                            <img src="images/spacer.gif" width="1" height="6" alt="" /></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="4">
+                            <img name="wish_18" src="images/wish_18.gif" width="5" height="301" alt="" /></td>
+                        <td colspan="2">
+                            <img src="images/wish_19.gif" width="27" height="16" alt="希望成功" /></td>
+                        <td colspan="2" rowspan="4">
+                            <img src="images/wish_20.gif" width="23" height="301" alt="" /></td>
+                        <td>
+                            <img src="images/spacer.gif" width="1" height="16" alt="" /></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" rowspan="3">
+                            <img src="images/wish_21.gif" width="27" height="285" alt="" /></td>
+                        <td>
+                            <img src="images/spacer.gif" width="1" height="6" alt="" /></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2">
+                            <img src="images/wish_22.gif" width="4" height="279" alt="" /></td>
+                        <td>
+                            <img src="images/wish_23.gif" width="94" height="173" alt="" /></td>
+                        <td rowspan="2">
+                            <img src="images/wish_24.gif" width="144" height="279" alt="" /></td>
+                        <td>
+                            <img src="images/spacer.gif" width="1" height="173" alt="" /></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <img src="images/wish_25.gif" width="94" height="106" alt="" /></td>
+                        <td>
+                            <img src="images/spacer.gif" width="1" height="106" alt="" /></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <img src="images/spacer.gif" width="227" height="1" alt="" /></td>
+                        <td>
+                            <img src="images/spacer.gif" width="34" height="1" alt="" /></td>
+                        <td>
+                            <img src="images/spacer.gif" width="4" height="1" alt="" /></td>
+                        <td>
+                            <img src="images/spacer.gif" width="94" height="1" alt="" /></td>
+                        <td>
+                            <img src="images/spacer.gif" width="144" height="1" alt="" /></td>
+                        <td>
+                            <img src="images/spacer.gif" width="5" height="1" alt="" /></td>
+                        <td>
+                            <img src="images/spacer.gif" width="24" height="1" alt="" /></td>
+                        <td>
+                            <img src="images/spacer.gif" width="3" height="1" alt="" /></td>
+                        <td>
+                            <img src="images/spacer.gif" width="19" height="1" alt="" /></td>
+                        <td>
+                            <img src="images/spacer.gif" width="4" height="1" alt="" /></td>
+                        <td>
+                            <img src="images/spacer.gif" width="42" height="1" alt="" /></td>
+                        <td>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

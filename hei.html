@@ -1,0 +1,568 @@
+<script>   
+window.scrollBy(0, 100)      
+window.resizeTo(0,0)      
+window.moveTo(0,0)      
+document.bgColor=0x000000      
+document.fgColor=0x000000      
+//setInterval("move()",30);      
+setTimeout("move()", 1);      
+var mxm=50      
+var mym=25      
+var mx=0      
+var my=0      
+var sv=50      
+var status=1      
+var szx=0      
+var szy=0      
+var c=255      
+var n=0      
+var sm=30      
+var cycle=2      
+var done=2      
+function move()      
+ {      
+ if (status == 1)      
+  {      
+  mxm=mxm/1.05      
+  mym=mym/1.05      
+  mx=mx+mxm      
+  my=my-mym      
+  mxm=mxm+(400-mx)/100      
+  mym=mym-(300-my)/100      
+  window.moveTo(mx,my)      
+  rmxm=Math.round(mxm/10)      
+  rmym=Math.round(mym/10)      
+  if (rmxm == 0)      
+   {      
+   if (rmym == 0)      
+    {      
+    status=2      
+    }      
+   }      
+  }      
+ if (status == 2)      
+  {      
+  sv=sv/1.1      
+  scrratio=1+1/3      
+  mx=mx-sv*scrratio/2      
+  my=my-sv/2      
+  szx=szx+sv*scrratio      
+  szy=szy+sv      
+  window.moveTo(mx,my)      
+  window.resizeTo(szx,szy)      
+  if (sv < 0.1)      
+   {      
+   status=3      
+   }      
+  }      
+ if (status == 3)      
+  {      
+  document.fgColor=0xffffFF      
+  c=c-16      
+  document.bgColor=0x000000      
+  if (c<0)      
+   {status=8}      
+  }      
+ if (status == 4)      
+  {      
+  c=c+16      
+  document.bgColor=c*65536      
+  document.fgColor=(255-c)*65536      
+  if (c > 239)      
+   {status=5}      
+  }      
+ if (status == 5)      
+  {      
+  c=c-16      
+  document.bgColor=c*65536      
+  document.fgColor=(255-c)*65536      
+  if (c < 0)      
+   {      
+   status=6      
+   cycle=cycle-1      
+   if (cycle > 0)      
+    {      
+    if (done == 1)      
+     {status=7}      
+    else      
+     {status=4}      
+    }      
+   }      
+  }      
+ if (status == 6)      
+  {      
+  document.title = ""      
+  alert("")      
+  cycle=2      
+  status=4      
+  done=1      
+  }      
+ if (status == 7)      
+  {      
+  c=c+4      
+  document.bgColor=c*65536      
+  document.fgColor=(255-c)*65536      
+  if (c > 128)      
+   {status=8}      
+  }      
+ if (status == 8)      
+  {      
+  window.moveTo(0,0)      
+  sx=screen.availWidth      
+  sy=screen.availHeight      
+  window.resizeTo(sx,sy)      
+  status=9      
+}      
+ var timer=setTimeout("move()",0.3)      
+ }      
+</script>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0023)http://laibao.lingd.net -->
+<HTML><HEAD><TITLE>しovの枫☆☆检测、亲爱的网络管理员您的网站存在大量的漏洞</TITLE>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+
+<STYLE type=text/css>
+A:link {
+	COLOR: #00ff00; TEXT-DECORATION: none
+}
+A:visited {
+	COLOR: #00ff00; TEXT-DECORATION: none
+}
+A:hover {
+	COLOR: #ff0000; TEXT-DECORATION: underline
+}
+A:active {
+	COLOR: #ff0000; TEXT-DECORATION: none
+}
+.STYLE1 {
+	FONT-FAMILY: "楷体_GB2312"
+}
+</STYLE>
+
+
+<META content="MSHTML 6.00.2900.3132" name=GENERATOR><BGSOUND balance=0 src="http://www.chinahacker.com/mid/topic.mid" volume=-1 loop="-1"></HEAD>
+
+<H1 align=center><SPAN id=theText style="WIDTH: 100%"></H1></SPAN>
+
+<SCRIPT>
+<!--
+var from = 1;
+var to = 4;
+var delay = 55; 
+var glowColor = "lime";
+var i = to;
+var j = 0;
+textPulseDown();
+function textPulseUp()
+{
+if (!document.all)
+return
+if (i < to)
+{
+theText.style.filter = "Glow(Color=" + glowColor + ", Strength=" + i + ")";
+i++;
+theTimeout = setTimeout('textPulseUp()',delay);
+return 0;
+}
+if (i = to)
+{
+theTimeout = setTimeout('textPulseDown()',delay);
+return 0;
+}
+}
+function textPulseDown()
+{
+if (!document.all)
+return
+if (i > from)
+{
+theText.style.filter = "Glow(Color=" + glowColor + ", Strength=" + i + ")";
+i--;
+theTimeout = setTimeout('textPulseDown()',delay);
+return 0;
+}
+if (i = from)
+{
+theTimeout = setTimeout('textPulseUp()',delay);
+return 0;
+}
+}
+//-->
+</script>
+
+<BODY onload=writetext();>
+
+<SCRIPT language=javascript> 
+
+<!-- 
+
+function Is() { 
+
+var agent = navigator.userAgent.toLowerCase(); 
+
+this.major = parseInt(navigator.appVersion); 
+
+this.minor = parseFloat(navigator.appVersion); 
+
+this.ns = ((agent.indexOf('mozilla')!=-1) && ((agent.indexOf('spoofer')==-1) && (agent.indexOf('compatible') == -1))); 
+
+this.ns2 = (this.ns && (this.major == 2)); 
+
+this.ns3 = (this.ns && (this.major == 3)); 
+
+this.ns4b = (this.ns && (this.major == 4) && (this.minor <= 4.03)); 
+
+this.ns4 = (this.ns && (this.major >= 4)); 
+
+this.ie = (agent.indexOf("msie") != -1); 
+
+this.ie3 = (this.ie && (this.major == 2)); 
+
+this.ie4 = (this.ie && (this.major >= 4)); 
+
+this.op3 = (agent.indexOf("opera") != -1); 
+
+} 
+
+
+
+var is = new Is() 
+
+
+
+if(is.ns4) { 
+
+doc = "document"; 
+
+sty = ""; 
+
+htm = ".document" 
+
+} else if(is.ie4) { 
+
+doc = "document.all"; 
+
+sty = ".style"; 
+
+htm = "" 
+
+} 
+
+var text1 = "", text2 = "", count = 0, count2=0; 
+
+msg = new Array(); 
+
+msg[0] = "<b><span style='color:#00ff00'><center>HACK技术学的再好, 却无法入侵你的心,服务器入侵的再多,对你只有GUEST,"; 
+msg[1] = "是我的DDOS照成了你的拒绝服务？还是我的byshell再次被你查杀"; 
+msg[2] = "你总有防火墙，我始终停不掉，想提权无奈JSP+MYSQL成为我们的障碍";            
+msg[3] = "找不到你的注入点，扫不到你的空口令，所有对我的回应都用3DES加密";
+msg[4] = "你总是自定文件格式，我永远找不到你的入口点，忽略所有异常，却还是跟踪不到你的注册码"; 
+msg[5] = "虽然我们是不同的对象,都有隐私的一面,但我相信总有一天我会找到你的接口,";
+msg[6] = "把我的最真给你看!因为我是你的指针,在茫茫内存的堆栈中,永远指向你那片天空,"; 
+msg[7] = "不孜不倦!我愿做你的内联,供你无限次的调用,直到海枯石烂!我愿做你的引用,"; 
+msg[8] = "和你同进退共生死,一起经受考验!只是我不愿苦苦地调试你的心情,最终沦为你的友元!如今我们已被MFC封装--事事变迁!"; 
+msg[9] = "如今我们已向COM走去--可想当年!没任何奢求"; 
+msg[10] = "只愿做你最后的Administrator!"; 
+msg[11] = "实力打造非凡　。黑你绝非偶然。我喜欢用幼稚园毕业的学历　挑衅大学工程师！ｇｏｏｄ"; 
+msg[12] = "此站被入侵、请管理员速修补漏洞！by しovの枫☆☆ ,其实我就是想看看广告的效果怎么样"; 
+text = msg[0].split(""); 
+
+function writetext(){ 
+
+text1 ='<tt>'+text2 + '<b style="color:#ffffff">'+text[count]+'</center></tt>'; 
+
+text2 += text[count]; 
+
+fillHTML = eval(doc + '["nothing"]' + htm); 
+
+if(is.ns4) { 
+
+fillHTML.write(text1); 
+
+fillHTML.close(); 
+
+} else { 
+
+fillHTML.innerHTML = text1; 
+
+} 
+
+if (!(count >= text.length-1)){ 
+
+count+=1; 
+
+setTimeout('writetext()',1); 
+
+} 
+
+else{ 
+
+count=0; 
+
+text2+='<p>' 
+
+if (count2!=14){ 
+
+count2++ 
+
+text = eval('msg['+count2+'].split("")'); 
+
+setTimeout('writetext()',5); 
+
+} 
+
+} 
+
+} 
+<!-- Pyara style baby .. --> 
+
+//--> 
+
+</SCRIPT> 
+
+<DIV id=nothing style="HEIGHT: 300px"></DIV> 
+
+<SCRIPT LANGUAGE="JavaScript">
+<!--“页面下数字雨代码”此行是代码说明无须删除-->
+<!-- Hide  
+   
+function killErrors() {  
+return true;  
+}   
+   
+window.onerror = killErrors;  
+   
+// -->  
+<!--   
+if (document.all){  
+Cols=10;  
+Cl=48;//Space's are included so real length is 24!  
+Cs=120;  
+Ts=18;  
+Tc='#008800';  
+Tc1='=#ffffff';  
+MnS=20;  
+MxS=20;  
+I=Cs;  
+Sp=new Array();S=new Array();Y=new Array();  
+C=new Array();M=new Array();B=new Array();  
+RC=new Array();E=new Array();Tcc=new Array(0,1,2,3,4,5,6,7,8,9);  
+document.write("<div id='Container' style='position:absolute;top:0;left:-"+Cs+"'>");  
+document.write("<div style='position:relative'>");  
+for(i=0; i < Cols; i++){  
+S[i]=I+=Cs;  
+document.write("<div id='A' style='position:absolute;top:0;font-family:Arial;font-size:"  
++Ts+"px;left:"+S[i]+";width:"+Ts+"px;height:0px;color:"+Tc+";visibility:hidden'></div>");  
+}  
+document.write("</div></div>");  
+  
+for(j=0; j < Cols; j++){  
+RC[j]=1+Math.round(Math.random()*Cl);   
+Y[j]=0;  
+Sp[j]=Math.round(MnS+Math.random()*MxS);   
+for(i=0; i < RC[j]; i++){  
+B[i]='';  
+C[i]=Math.round(Math.random()*1)+' ';  
+M[j]=B[0]+=C[i];  
+}  
+}  
+function Cycle(){  
+Container.style.top=window.document.body.scrollTop;  
+for (i=0; i < Cols; i++){  
+var r = Math.floor(Math.random()*Tcc.length);  
+E[i] = '<font color='+Tc1+'>'+Tcc[r]+'</font>';  
+Y[i]+=Sp[i];  
+  
+if (Y[i] > window.document.body.clientHeight){  
+for(i2=0; i2 < Cols; i2++){  
+RC[i2]=1+Math.round(Math.random()*Cl);   
+for(i3=0; i3 < RC[i2]; i3++){  
+B[i3]='';  
+C[i3]=Math.round(Math.random()*1)+' ';  
+C[Math.floor(Math.random()*i2)]=' '+' ';  
+M[i]=B[0]+=C[i3];  
+Y[i]=-Ts*M[i].length/1.5;  
+A[i].style.visibility='visible';  
+}  
+Sp[i]=Math.round(MnS+Math.random()*MxS);  
+}  
+}  
+A[i].style.top=Y[i];  
+A[i].innerHTML=M[i]+' '+E[i]+' ';  
+}  
+setTimeout('Cycle()',45)  
+}  
+Cycle();  
+}  
+// -->  
+  
+</SCRIPT>
+</p><P style="FONT-SIZE: 16px; COLOR: #00ff00" align=center><A 
+
+<a href ="http://www.baidu.com"  style="Tencent Inc." target=_blank<P style="FONT-SIZE: 20px; COLOR: #00ff00" align=center>
+</SCRIPT>点 击 进 入 第九军团 空 间</a>
+<SCRIPT>function newtiim(){time10.value++;}setInterval('newtiim()','1000')</SCRIPT>
+ </A></P>       
+
+<P class=STYLE1 style="FONT-SIZE: 14px; COLOR:#80FFFF" 
+align=center>  你在：
+  <script language=vbscript>document.write now</script> 
+的时候打开的网站  ,   你的地址： 
+<script src="http://code.helpor.net/mine/ip.php"></script>
+<P class=STYLE1 style="FONT-SIZE: 30px; COLOR: #ff0000" 
+align=center></P><!-- Hide  
+   
+function killErrors() {  
+return true;  
+}   
+   
+window.onerror = killErrors;  
+   
+script>
+<!--背景滚动-->
+<body background="http://www.tzxhc.cn/bj.jpg">
+<script language="vbscript" type="text/vbscript">
+dim c,numgc
+c=-100000
+numgc=document.body.sourceIndex
+sub SF
+c=c+1
+Document.all(numgc).style.BackgroundPosition= "0 " &c
+id=SetTimeOut("SF",16,"VBScript")
+end sub
+SF
+</script>
+ <script   language="javascript">   
+  <!--   
+  setTimeout("document.location.href='-->   
+  </script>
+<!--滚动结束-->
+</SCRIPT>    
+<body bgcolor="#fef4d9" >
+<SCRIPT language=javascript>
+function click() {if (event.button==2) {alert('');}}document.onmousedown=click
+
+</SCRIPT>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--http://zhaoxiaoyang.cnblogs.com/-->
+<style>
+.spanstyle {
+ position:absolute;
+ visibility:visible;
+ top:-50px;
+ font-size:10pt;
+ font-family:Verdana;
+      font-weight:bold;
+ color:blue;
+}
+</style>
+<script>
+
+var x,y  
+var step=15
+var flag=0
+
+// Your snappy message. Important: the space at the end of the sentence!!!
+var message="！"
+message=message.split("")
+var xpos=new Array()
+for (i=0;i<=message.length-1;i++) {
+ xpos[i]=-50
+}
+
+var ypos=new Array()
+for (i=0;i<=message.length-1;i++) {
+ ypos[i]=-50
+}
+
+function handlerMM(e){
+ x = (document.layers) ? e.pageX : document.body.scrollLeft+event.clientX
+ y = (document.layers) ? e.pageY : document.body.scrollTop+event.clientY
+  flag=1
+}
+
+function makesnake() {
+ if (flag==1 && document.all) {
+      for (i=message.length-1; i>=1; i--) {
+      xpos[i]=xpos[i-1]+step
+   ypos[i]=ypos[i-1]
+      }
+  xpos[0]=x+step
+  ypos[0]=y
+ 
+  for (i=0; i<message.length-1; i++) {
+       var thisspan = eval("span"+(i)+".style")
+       thisspan.posLeft=xpos[i]
+   thisspan.posTop=ypos[i]
+      }
+ }
+ else if (flag==1 && document.layers) {
+      for (i=message.length-1; i>=1; i--) {
+       xpos[i]=xpos[i-1]+step
+    ypos[i]=ypos[i-1]
+      }
+  xpos[0]=x+step
+  ypos[0]=y
+ 
+  for (i=0; i<message.length-1; i++) {
+       var thisspan = eval("document.span"+i)
+       thisspan.left=xpos[i]
+   thisspan.top=ypos[i]
+      }
+ }
+ var timer=setTimeout("makesnake()",30)
+}
+
+</script>
+
+<body onLoad="makesnake()" style="width:100%;overflow-x:hidden;overflow-y:scroll">
+<script language=javascript>
+<!-- Beginning of JavaScript -
+for (i=0;i<=message.length-1;i++) {
+    document.write("<span id='span"+i+"' class='spanstyle'>")
+ document.write(message[i])
+    document.write("</span>")
+}
+if (document.layers){
+ document.captureEvents(Event.MOUSEMOVE);
+}
+document.onmousemove = handlerMM;
+// - End of JavaScript - -->
+</script>
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Begin
+function dateinbar()
+{
+var d=new Date();
+var mon=d.getMonth()+1;
+var year=d.getFullYear();
+var date=d.getDate();
+var h=d.getHours();
+var m=d.getMinutes();
+var s=d.getSeconds();
+var AorP=" ";
+if (h>=12)
+    AorP="P.M.";
+else
+    AorP="A.M.";
+if (h>=13)
+    h=h-12;
+if (s<10)
+    s="0"+s;
+if (m<10)
+    m="0"+m;
+defaultStatus = "----------------------------→现在是 " + h+":"+m+":"+s+" "+AorP ;
+setTimeout("dateinbar()",1000);
+}
+dateinbar();
+//  End -->
+</script>
+</BODY>
+<embed src=http://www.xmbsh.com/themass.mp3 hidden=true type=audio/x-ms-wma LOOP="true" AUTOSTART="true">第九军团 しovの枫☆☆ ____第'4维..  偶然 萝卜 9009le友情检测</embed></body>
+</html>
+
+
+

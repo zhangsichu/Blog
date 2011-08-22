@@ -1,0 +1,421 @@
+﻿<!DOCTYPE html>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <!-- Copyright (c) 2011 Google Inc.
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *     http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   *
+   * Author: 
+   *
+   * 
+   *
+  -->
+  <meta name="description" content="A resource for developers looking to put HTML5 to use today, including information on specific features and when to use them in your apps.">
+  <meta name="keywords" content="html5,html 5,html5 demos,html5 examples,javascript,css3,notifications,geolocation,web workers,apppcache,file api,filereader,offline,audio,video,drag and drop,chrome">
+  <title>HTML5 Rocks - Resources</title>
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="stylesheet" media="all" href="css/base.css">
+  <link rel="stylesheet" media="only screen and (max-width: 800px)" href="css/mobile.css">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+
+  <!-- iOS: run in full-screen mode and display upper status bar as translucent -->
+  <!--<meta name="apple-mobile-web-app-capable" content="yes" /> 
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />-->
+
+  <link rel="apple-touch-icon" href="images/HTML5_Badge_64.png">
+  <link rel="apple-touch-icon-precomposed" href="images/HTML5_Badge_64.png">
+  
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5-els.js"></script>
+  <![endif]-->
+
+  
+  <style media="screen">
+    .resource-list {
+      list-style: none;
+      padding-left: 0;
+      overflow: hidden;
+    }
+    .resource-list li { 
+      padding-top: 10px;
+      width: 30%;
+      float: left;
+      height: 190px;
+      margin: -10px 10px 10px 0;
+    }
+    .resource-list img {
+      display: block;
+      width: 200px;
+      height: 89px;
+      padding: 5px;
+      border: 1px solid #ccc;
+      margin-bottom: 10px;
+    }
+    .book-list img {
+      width: auto;
+      height: 133px;
+    }
+    .section-header {
+      border-bottom: 1px solid #ddd;
+    }
+
+    @media only screen and (max-width: 640px) { /*iPhone, Android*/
+      .resource-list li {
+        float: none;
+        margin: 10px auto;
+        padding-top: 0;
+        width: auto;
+        height: auto;
+      }
+    }
+  </style>
+
+</head>
+<body onload="">
+  <div id="wrap">
+    <div id="content">
+      <header>
+        <div>
+          <h1 id="title">
+            <a href="http://www.html5rocks.com/" title="HTML5 Rocks Logo" alt="HTML5 Rocks Logo"><span class="normal">HTML</span><img src="images/HTML5_Badge_64.png"><span class="rocks">Rocks</span></a>
+          </h1>
+          <nav>
+            <ul>
+              <li><a href="http://slides.html5rocks.com/" target="_blank">Presentation</a></li>
+              <li><a href="http://playground.html5rocks.com/">Playground</a></li>
+              <li><a href="http://studio.html5rocks.com/">Studio</a></li>
+              <li><a href="http://www.html5rocks.com/tutorials/">Tutorials</a></li>
+              <li><a href="images/HTML5 Rocks - Resources.htm" class="current">Resources</a></li>
+            </ul>
+          </nav>
+        </div>
+        <form action="http://www.html5rocks.com/search" id="cse-search-box">
+          <div>
+            <input type="hidden" name="cx" value="007435387813601113811:ef_kuvvx6a8">
+            <input type="hidden" name="cof" value="FORID:9">
+            <input type="hidden" name="ie" value="UTF-8">
+            <input type="search" name="q" id="q" autocomplete="off" placeholder="Search HTML5Rocks">
+          </div>
+        </form>
+      </header>
+
+      
+<div>
+  <section>
+    <h2 class="section-header">Reference</h2>
+    <ul class="resource-list">
+      <li>
+        <a href="http://html5readiness.com/"><img data-resource="http://html5readiness.com" src="images/html5readiness.png"></a>
+        <span class="buttonlink"><a href="http://html5readiness.com/">HTML5 Readiness</a></span>
+        : Visual timeline of HTML5 feature support.
+      </li>
+      <li>
+        <a href="http://caniuse.com/"><img data-resource="http://caniuse.com" src="images/whencaniuse.png"></a>
+        <span class="buttonlink"><a href="http://caniuse.com/">When Can I Use...</a></span>
+        : Up to date HTML5 feature browser support reference.
+      </li>
+      <li>
+        <a href="http://beta.html5test.com/"><img data-resource="http://beta.html5test.com/" src="images/html5tests.png"></a>
+        <span class="buttonlink"><a href="http://beta.html5test.com/">HTML5 Test</a></span>
+        : Series of browser tests to evaluate feature support.
+      </li>
+      <li>
+        <a href="http://www.findmebyip.com/litmus/"><img data-resource="http://www.findmebyip.com/litmus/" src="images/findmebyip.png"></a>
+        <span class="buttonlink"><a href="http://www.findmebyip.com/litmus/">Web Designer's Checklist</a></span>
+        : Detailed browser feature support reference.
+      </li>
+    <!--  <li>
+        <a href="http://www.focus.com/images/view/11905/"><img data-resource="http://www.focus.com/images/view/11905/" src="static/images/screenshots/html5visual.png" /></a>
+        <span class="buttonlink"><a href="http://www.focus.com/images/view/11905/">HTML5 Infographic</a></span>
+        : A quick overview of scope and support.
+      </li>
+    -->
+      <li>
+        <a href="http://dev.chromium.org/developers/web-platform-status"><img data-resource="http://dev.chromium.org/developers/web-platform-status" src="images/status.png"></a>
+        <span class="buttonlink"><a href="http://dev.chromium.org/developers/web-platform-status">Chrome Implementation Status</a></span>
+        : Follow the engineering effort for cutting edge support from the Chrome team.
+      </li>
+      <li>
+        <a href="http://en.wikipedia.org/wiki/Comparison_of_layout_engines_(HTML5)"><img data-resource="http://en.wikipedia.org/wiki/Comparison_of_layout_engines_(HTML5)" src="images/wikipedia.png"></a>
+        <span class="buttonlink"><a href="http://en.wikipedia.org/wiki/Comparison_of_layout_engines_(HTML5)">HTML5: Comparison of Layout Engines</a></span>
+        : If the Wikipedia says it then it must be true.
+      </li>
+
+      <li>
+        <a href="http://kangax.github.com/es5-compat-table/"><img data-resource="http://kangax.github.com/es5-compat-table/" src="images/kangax.png"></a>
+        <span class="buttonlink"><a href="http://kangax.github.com/es5-compat-table/">ECMAScript 5 table</a></span>
+        : Detailed table of ES5 support across browsers.
+      </li>
+      <li>
+        <a href="http://www.quirksmode.org/compatibility.html"><img data-resource="http://www.quirksmode.org/compatibility.html" src="images/quirks.png"></a>
+        <span class="buttonlink"><a href="http://www.quirksmode.org/compatibility.html">Compatibility Tables</a></span>
+        : Results of DOM and CSS properties tests in major browsers.
+      </li>
+
+      <li>
+        <a href="http://html5demos.com/"><img data-resource="http://html5demos.com" src="images/html5demos.png"></a>
+        <span class="buttonlink"><a href="http://html5demos.com/">HTML5 Demos</a></span>
+      </li>
+
+    </ul>
+  </section>
+
+  <h2 class="section-header">Documentation</h2>
+  <ul class="resource-list">
+    <li>
+      <a href="http://dev.w3.org/html5/spec-author-view/"><img data-resource="http://dev.w3.org/html5/spec-author-view/" src="images/w3devview.png"></a>
+      <span class="buttonlink"><a href="http://dev.w3.org/html5/spec-author-view/">W3C HTML5 Web Author View</a></span>
+      : Lightweight version of the W3c spec, perfect for web developers.
+    </li>
+
+    <li>
+      <a href="http://diveintohtml5.org/"><img data-resource="http://diveintohtml5.org/" src="images/diveinto.png"></a>
+      <span class="buttonlink"><a href="http://diveintohtml5.org/">Dive into HTML5 by Mark Pilgrim</a></span>
+      : Learn HTML5 and have a laugh at the same time.
+    </li>
+
+    <li>
+      <a href="http://developer.apple.com/safari/"><img data-resource="http://developer.apple.com/safari/" src="images/safaridocs.png"></a>
+      <span class="buttonlink"><a href="http://developer.apple.com/safari/">Safari HTML5 Guides</a></span>
+      : Excellent WebKit-oriented development documentation.
+    </li>
+    <li>
+      <a href="https://developer.mozilla.org/en/HTML/HTML5"><img data-resource="https://developer.mozilla.org/en/HTML/HTML5" src="images/mdc.png"></a>
+      <span class="buttonlink"><a href="https://developer.mozilla.org/en/HTML/HTML5">Mozilla Development Center HTML5 Reference</a></span>
+      : Excellent documentation and guides.
+    </li>
+    <li>
+      <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/"><img data-resource="http://www.whatwg.org/specs/web-apps/current-work/multipage/" src="images/wgfullspec.png"></a>
+      <span class="buttonlink"><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/">WhatWG Web Apps Spec (HTML5 plus the kitchen sink)</a></span>
+      : Working draft spec of everything under the larger HTML5 umbrella.
+    </li>
+
+  </ul>
+
+  <section>
+    <h2 class="section-header">Tools</h2>
+    <ul class="resource-list">
+      <li>
+        <a href="http://www.modernizr.com/"><img data-resource="http://www.modernizr.com/" src="images/modernizr.png"></a>
+        <span class="buttonlink"><a href="http://www.modernizr.com/">Modernizr</a></span>
+        : Javascript library for feature detection and control fallback cases of HTML5.
+      </li>
+      <li>
+        <a href="http://code.google.com/p/html5shiv/"><img data-resource="http://code.google.com/p/html5shiv/" src="images/html5shiv.png"></a>
+        <span class="buttonlink"><a href="http://code.google.com/p/html5shiv/">html5 shiv</a></span>
+        : Javascript patch to make IE support, and print, the new tag elements.
+      </li>
+      <li>
+        <a href="http://html5boilerplate.com/"><img data-resource="http://html5boilerplate.com/" src="images/html5boilerplate.png"></a>
+        <span class="buttonlink"><a href="http://html5boilerplate.com/">HTML5 Boilerplate</a></span>
+        : An set of HTML/CSS/JS templates with best practices for HTML5 and front-end dev built in.
+      </li>
+      <li>
+        <a href="https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-browser-Polyfills"><img data-resource="https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-browser-Polyfills" src="images/polyfills.png"></a>
+        <span class="buttonlink"><a href="https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-browser-Polyfills">HTML5 Cross-browser Polyfills</a></span>
+        : The collection of scripts that enable HTML5 features in all browsers.
+      </li>
+      <li>
+        <a href="http://css-tricks.com/examples/ButtonMaker/"><img data-resource="http://css-tricks.com/examples/ButtonMaker/" src="images/buttongen.png"></a>
+        <span class="buttonlink"><a href="http://css-tricks.com/examples/ButtonMaker/">CSS Button Maker</a></span>
+        : Preview CSS buttons with a fancy interface to play with the parameters.
+      </li>
+      <li>
+        <a href="http://css3generator.com/"><img data-resource="http://css3generator.com/" src="images/cssgen.png"></a>
+        <span class="buttonlink"><a href="http://css3generator.com/">CSS3 Generator</a></span>
+        : Preview CSS buttons with a fancy interface to play with the parameters.
+      </li>
+      <li>
+        <a href="http://www.westciv.com/tools/gradients/index.html"><img data-resource="http://www.westciv.com/tools/gradients/index.html" src="images/sandbox.png"></a>
+        <span class="buttonlink"><a href="http://www.westciv.com/tools/gradients/index.html">CSS3 Sandbox</a></span>
+        : Test and get the code of the fanciest CSS features.
+      </li>
+      <li>
+        <a href="http://gradients.glrzad.com/"><img data-resource="http://gradients.glrzad.com/" src="images/gradientgen.png"></a>
+        <span class="buttonlink"><a href="http://gradients.glrzad.com/">CSS3 Gradient Generator</a></span>
+        : Generate CSS code for gradients on the fly.
+      </li>
+      <li>
+        <a href="http://css3please.com/"><img data-resource="http://css3please.com/" src="images/css3please.png"></a>
+        <span class="buttonlink"><a href="http://css3please.com/">CSS3 Please</a></span>
+        : Use CSS3 without having to worry about xbrowser differences.
+      </li>
+      <li>
+        <a href="http://labs.thecssninja.com/font_dragr/"><img data-resource="http://labs.thecssninja.com/font_dragr/" src="images/font_dragr.png"></a>
+        <span class="buttonlink"><a href="http://labs.thecssninja.com/font_dragr/">Font Dragr</a></span>
+        : Test your fonts using drag and drop.
+      </li>
+      <li>
+        <a href="http://www.fontsquirrel.com/fontface/generator"><img data-resource="http://www.fontsquirrel.com/fontface/generator" src="images/squirrel.png"></a>
+        <span class="buttonlink"><a href="http://www.fontsquirrel.com/fontface/generator">Font Squirrel Generator</a></span>
+        : Most complete tool to generate code for you font-face support.
+      </li>
+      <li>
+        <a href="http://code.google.com/speed/tools.html"><img data-resource="http://code.google.com/speed/tools.html" src="images/speed.png"></a>
+        <span class="buttonlink"><a href="http://code.google.com/speed/tools.html">Let's make the web faster</a></span>
+        : Complete list of tools related to web performance.
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="section-header">Community</h2>
+    <ul class="resource-list">
+      <!--<li>
+        <a href="http://html5watch.tumblr.com/"><img data-resource="http://html5watch.tumblr.com/" src="static/images/screenshots/html5watch.png" /></a>
+        <span class="buttonlink"><a href="http://html5watch.tumblr.com/">HTML5 Watch</a></span>
+      </li>-->
+      <li>
+        <a href="http://html5doctor.com/"><img data-resource="http://html5doctor.com/" src="images/doctor.png"></a>
+        <span class="buttonlink"><a href="http://html5doctor.com/">HTML5 Doctor</a></span>
+      </li>
+      <li>
+        <a href="http://blog.whatwg.org/"><img data-resource="http://blog.whatwg.org" src="images/whatwgblog.png"></a>
+        <span class="buttonlink"><a href="http://blog.whatwg.org/">WhatWG Blog</a></span>
+      </li>
+      <li>
+        <a href="http://ajaxian.com/"><img data-resource="http://ajaxian.com/" src="images/ajaxian.png"></a>
+        <span class="buttonlink"><a href="http://ajaxian.com/">Ajaxian</a></span>
+      </li>
+      <li>
+        <a href="https://groups.google.com/a/chromium.org/group/chromium-html5/topics"><img data-resource="https://groups.google.com/a/chromium.org/group/chromium-html5/topics" src="images/chromium.png"></a>
+        <span class="buttonlink"><a href="https://groups.google.com/a/chromium.org/group/chromium-html5/topics">Chromium HTML5 Discussion Group</a></span>
+      </li>
+      <li>
+        <a href="http://hacks.mozilla.org/"><img data-resource="http://hacks.mozilla.org/" src="images/hackmozilla.png"></a>
+        <span class="buttonlink"><a href="http://hacks.mozilla.org/">Mozilla Hacks</a></span>
+      </li>
+      <li>
+        <a href="http://developer.apple.com/safaridemos/"><img data-resource="http://developer.apple.com/safaridemos/" src="images/safaridemos.png"></a>
+        <span class="buttonlink"><a href="http://developer.apple.com/safaridemos/">Safari HTML5 Demos</a></span>
+      </li>
+      <li>
+        <a href="http://ie.microsoft.com/testdrive/"><img data-resource="http://ie.microsoft.com/testdrive/" src="images/ie9testdrivedemos.png"></a>
+        <span class="buttonlink"><a href="http://ie.microsoft.com/testdrive/">Test Drive IE9 Demos</a></span>
+      </li>
+      <li>
+        <a href="http://dev.opera.com/articles/tags/open%20web/"><img data-resource="http://dev.opera.com/articles/tags/open%20web/" src="images/opera.png"></a>
+        <span class="buttonlink"><a href="http://dev.opera.com/articles/tags/open%20web/">Open Web - Opera Developer Community</a></span>
+      </li>
+      <li>
+        <a href="http://www.chromeexperiments.com/"><img data-resource="http://www.chromeexperiments.com/" src="images/experiments.png"></a>
+        <span class="buttonlink"><a href="http://www.chromeexperiments.com/">Chrome Experiments</a></span>
+      </li>
+
+      <li>
+        <a href="http://css3watch.com/"><img data-resource="http://css3watch.com/" src="images/css3watch.png"></a>
+        <span class="buttonlink"><a href="http://css3watch.com/">CSS3 Watch</a></span>
+      </li>
+
+    </ul>
+  </section>
+  <section>
+    <h2 class="section-header">Books</h2>
+    <ul class="resource-list book-list">
+      <li>
+        <a href="http://www.amazon.com/HTML5-Up-Running-Mark-Pilgrim/dp/0596806027"><img data-resource="http://www.amazon.com/HTML5-Up-Running-Mark-Pilgrim/dp/0596806027" src="images/book-pilgrim.png"></a>
+        <span class="buttonlink"><a href="http://www.amazon.com/HTML5-Up-Running-Mark-Pilgrim/dp/0596806027">HTML5 [Mark Pilgrim]</a></span>
+      </li>
+      <li>
+        <a href="http://apress.com/book/view/1430227907"><img data-resource="http://apress.com/book/view/1430227907" src="images/book-lubbers.png"></a>
+        <span class="buttonlink"><a href="http://apress.com/book/view/1430227907">Pro HTML5 Programming [Peter Lubbers, Brian Albers, Frank Salim]</a></span>
+      </li>
+      <li>
+        <a href="http://introducinghtml5.com/"><img data-resource="http://introducinghtml5.com/" src="images/book-lawson.png"></a>
+        <span class="buttonlink"><a href="http://introducinghtml5.com/">Introducing HTML5 [Bruce Lawson, Remy Sharp]</a></span>
+      </li>
+      <li>
+        <a href="http://books.alistapart.com/"><img data-resource="http://books.alistapart.com/" src="images/book-keith.png"></a>
+        <span class="buttonlink"><a href="http://books.alistapart.com/">HTML5 For Web Designers [Jeremy Keith]</a></span>
+      </li>
+      <li>
+        <a href="http://www.amazon.com/HTML5-Now-Step-Step-Tutorial/dp/0321719913"><img data-resource="http://www.amazon.com/HTML5-Now-Step-Step-Tutorial/dp/0321719913" src="images/book-tantek.png"></a>
+        <span class="buttonlink"><a href="http://www.amazon.com/HTML5-Now-Step-Step-Tutorial/dp/0321719913">HTML5 Now [Tantek Celik]</a></span>
+      </li>
+    </ul>
+  </section>
+</div>
+
+
+      <footer>
+        <span>
+          <a href="http://www.w3.org/html/logo/">
+            <img src="images/HTML5_Badge_64.png" align="left" title="HTML5 Logo" alt="HTML5 Logo" class="footer-badge">
+          </a>
+        </span>
+        <span>
+          <a href="http://www.html5rocks.com/tos.html">Terms</a> -
+          <a href="http://www.html5rocks.com/privacy.html">Privacy</a> -
+          <a href="http://goo.gl/mod/YmGX">Make a Suggestion</a> - 
+          <a href="http://code.google.com/p/html5rocks/issues/entry">Report Bug</a> - 
+          <a href="http://twitter.com/ChromiumDev">Follow us on Twitter</a> -
+          <a href="http://www.html5rocks.com/profiles">About Authors</a>
+        </span>
+        <span class="madeby">Made by Google | <img src="images/google_logo_small.png" width="50" height="20"></span>
+        <p>This site contains information on APIs that are not part of the W3C HTML5 specification.</p>
+      </footer>
+
+    </div>
+  </div>
+  <script>
+    (function() {
+      
+
+      // Check if new appcache is available.
+      if (window.applicationCache) {
+        window.applicationCache.addEventListener('updateready', function(e) {
+          if (window.applicationCache.status == window.applicationCache.UPDATEREADY) {
+            window.applicationCache.swapCache();
+            if (confirm('A new version of this site is available. Load it?')) {
+              window.location.reload();
+            }
+          }
+        }, false);
+     }
+
+      function isCompatible() {
+        
+        return null;
+        
+      }
+
+      if (isCompatible() === false) {
+        document.getElementById('notcompatible').className = '';
+      } else if (isCompatible() === true) {
+        document.getElementById('compatible').className = '';
+      }
+
+      var q = document.getElementById('q');
+
+      google.search.CustomSearchControl.attachAutoCompletion(
+          '007435387813601113811:ef_kuvvx6a8', q, 'cse-search-box');
+
+      q.addEventListener('keydown', function(e) {
+        if (e.keyCode == 13) { // enter key
+          document.getElementById('cse-search-box').submit();
+        }
+      }, false);
+
+      // Kill feedburner and marketing tracking arguments cuz they're ugly.
+      if (/^\?utm_/.test(document.location.search) &&
+          window.history.replaceState) {
+        window.history.replaceState(
+            {}, '', document.location.href.replace(/\?utm_.*/, ''));
+      }
+    })();
+
+  </script>
+
+
+</body></html>

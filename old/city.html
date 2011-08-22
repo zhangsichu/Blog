@@ -1,0 +1,374 @@
+<html>
+<head>
+    <title>飘泊寻觅</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+    <link href="css/city.css" type="text/css" rel="stylesheet" />
+    <style type="text/css">#divUpControl {
+	Z-INDEX: 1; LEFT: 10px; WIDTH: 320px; POSITION: absolute; TOP: 10px; TEXT-ALIGN: right
+}
+#divDownControl {
+	Z-INDEX: 1; LEFT: 10px; WIDTH: 320px; POSITION: absolute; TOP: 270px; TEXT-ALIGN: right
+}
+#divContainer {
+	LEFT: 10px; VISIBILITY: hidden; OVERFLOW: hidden; WIDTH: 320px; CLIP: rect(0px 320px 240px 0px); POSITION: absolute; TOP: 30px; HEIGHT: 240px
+}
+#divContent {
+	LEFT: 0px; POSITION: absolute; TOP: 0px
+}
+</style>
+
+    <script language="javascript" type="text/javascript">
+function verifyCompatibleBrowser(){ 
+    this.ver=navigator.appVersion 
+    this.dom=document.getElementById?1:0 
+    this.ie5=(this.ver.indexOf("MSIE 5")>-1 && this.dom)?1:0; 
+    this.ie4=(document.all && !this.dom)?1:0; 
+    this.ns5=(this.dom && parseInt(this.ver) >= 5) ?1:0; 
+ 
+    this.ns4=(document.layers && !this.dom)?1:0; 
+    this.bw=(this.ie5 || this.ie4 || this.ns4 || this.ns5) 
+    return this 
+} 
+bw=new verifyCompatibleBrowser() 
+ 
+ 
+var speed=1 
+ 
+var loop, timer 
+ 
+function ConstructObject(obj,nest){ 
+    nest=(!nest) ? '':'document.'+nest+'.' 
+    this.el=bw.dom?document.getElementById(obj):bw.ie4?document.all[obj]:bw.ns4?eval(nest+'document.'+obj):0; 
+    this.css=bw.dom?document.getElementById(obj).style:bw.ie4?document.all[obj].style:bw.ns4?eval(nest+'document.'+obj):0; 
+    this.scrollHeight=bw.ns4?this.css.document.height:this.el.offsetHeight 
+    this.clipHeight=bw.ns4?this.css.clip.height:this.el.offsetHeight 
+    this.up=MoveAreaUp;this.down=MoveAreaDown; 
+    this.MoveArea=MoveArea; this.x; this.y; 
+    this.obj = obj + "Object" 
+    eval(this.obj + "=this") 
+    return this 
+} 
+function MoveArea(x,y){ 
+    this.x=x;this.y=y 
+    this.css.left=this.x 
+    this.css.top=this.y 
+} 
+ 
+function MoveAreaDown(move){ 
+	if(this.y>-this.scrollHeight+objContainer.clipHeight){ 
+    this.MoveArea(0,this.y-move) 
+    if(loop) setTimeout(this.obj+".down("+move+")",speed) 
+	} 
+} 
+function MoveAreaUp(move){ 
+	if(this.y<0){ 
+    this.MoveArea(0,this.y-move) 
+    if(loop) setTimeout(this.obj+".up("+move+")",speed) 
+	} 
+} 
+ 
+function PerformScroll(speed){ 
+	if(initialised){ 
+		loop=true; 
+		if(speed>0) objScroller.down(speed) 
+		else objScroller.up(speed) 
+	} 
+} 
+ 
+function CeaseScroll(){ 
+    loop=false 
+    if(timer) clearTimeout(timer) 
+} 
+var initialised; 
+function InitialiseScrollableArea(){ 
+    objContainer=new ConstructObject('divContainer') 
+    objScroller=new ConstructObject('divContent','divContainer') 
+    objScroller.MoveArea(0,0) 
+    objContainer.css.visibility='visible' 
+    initialised=true; 
+} 
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+//-->
+    </script>
+
+    <script type="text/javascript">
+<!--
+
+function newImage(arg) {
+	if (document.images) {
+		rslt = new Image();
+		rslt.src = arg;
+		return rslt;
+	}
+}
+
+function changeImages() {
+	if (document.images && (preloadFlag == true)) {
+		for (var i=0; i<changeImages.arguments.length; i+=2) {
+			document[changeImages.arguments[i]].src = changeImages.arguments[i+1];
+		}
+	}
+}
+
+var preloadFlag = false;
+function preloadImages() {
+	if (document.images) {
+		city_02_city_14_over = newImage("images/city_02-city_14_over.gif");
+		city_02_city_06_over = newImage("images/city_02-city_06_over.gif");
+		city_04_city_06_over = newImage("images/city_04-city_06_over.gif");
+		city_04_city_08_over = newImage("images/city_04-city_08_over.gif");
+		preloadFlag = true;
+	}
+}
+
+// -->
+    </script>
+
+    <script language="javascript" type="text/javascript">
+<!--
+function MM_reloadPage(init) {  //reloads the window if Nav4 resized
+  if (init==true) with (navigator) {if ((appName=="Netscape")&&(parseInt(appVersion)==4)) {
+    document.MM_pgW=innerWidth; document.MM_pgH=innerHeight; onresize=MM_reloadPage; }}
+  else if (innerWidth!=document.MM_pgW || innerHeight!=document.MM_pgH) location.reload();
+}
+MM_reloadPage(true);
+// -->
+    </script>
+
+</head>
+<body style="background-color: #EADEC9" onload="preloadImages();InitialiseScrollableArea();MM_preloadImages('images/button-up.gif','images/button-down.gif','images/button-up.gif','images/button-down.gif')">
+    <table width="98%" style="height: 98%">
+        <tr>
+            <td valign="middle" align="center">
+                <table width="600" border="0" cellpadding="0" cellspacing="0" align="center">
+                    <tr>
+                        <td colspan="15">
+                            <img src="images/city_01.gif" width="600" height="41" alt="" /></td>
+                        <td>
+                            <img src="images/spacer.gif" width="1" height="41" alt="" /></td>
+                    </tr>
+                    <tr>
+                        <td colspan="4" rowspan="4">
+                            <img name="city_02" src="images/city_02.gif" width="41" height="65" alt="" /></td>
+                        <td rowspan="2">
+                            <img src="images/city_03.gif" width="15" height="26" alt="飘泊寻觅" /></td>
+                        <td colspan="10">
+                            <img name="city_04" src="images/city_04.gif" width="544" height="23" alt="" /></td>
+                        <td>
+                            <img src="images/spacer.gif" width="1" height="23" alt="" /></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="8">
+                            <img src="images/city_05.gif" width="6" height="150" alt="" /></td>
+                        <td rowspan="2">
+                            <a href="peer.html" onmouseover="changeImages('city_02', 'images/city_02-city_06_over.gif', 'city_04', 'images/city_04-city_06_over.gif'); return true;"
+                                onmouseout="changeImages('city_02', 'images/city_02.gif', 'city_04', 'images/city_04.gif'); return true;">
+                                <img src="images/city_06.gif" width="13" height="25" border="0" alt="自由平等" /></a></td>
+                        <td rowspan="8">
+                            <img src="images/city_07.gif" width="6" height="150" alt="" /></td>
+                        <td rowspan="2">
+                            <a href="memory.html" onmouseover="changeImages('city_02', 'images/city_02-city_06_over.gif', 'city_04', 'images/city_04-city_08_over.gif'); return true;"
+                                onmouseout="changeImages('city_02', 'images/city_02.gif', 'city_04', 'images/city_04.gif'); return true;">
+                                <img src="images/city_08.gif" width="13" height="25" border="0" alt="记忆峥嵘" /></a></td>
+                        <td colspan="6" rowspan="4">
+                            <img src="images/city_09.gif" width="506" height="65" alt="" /></td>
+                        <td>
+                            <img src="images/spacer.gif" width="1" height="3" alt="" /></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="7">
+                            <img src="images/city_10.gif" width="15" height="147" alt="" /></td>
+                        <td>
+                            <img src="images/spacer.gif" width="1" height="22" alt="" /></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="6">
+                            <img src="images/city_11.gif" width="13" height="125" alt="" /></td>
+                        <td rowspan="6">
+                            <img src="images/city_12.gif" width="13" height="125" alt="" /></td>
+                        <td>
+                            <img src="images/spacer.gif" width="1" height="17" alt="" /></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                            <img src="images/city_13.gif" width="24" height="23" alt="" /></td>
+                        <td rowspan="2">
+                            <a href="yellow.html" onmouseover="changeImages('city_02', 'images/city_02-city_14_over.gif'); return true;"
+                                onmouseout="changeImages('city_02', 'images/city_02.gif'); return true;">
+                                <img src="images/city_14.gif" width="17" height="50" border="0" alt="心中那对成功的希冀" /></a></td>
+                        <td>
+                            <img src="images/spacer.gif" width="1" height="23" alt="" /></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="4">
+                            <img src="images/city_15.gif" width="4" height="85" alt="" /></td>
+                        <td rowspan="3">
+                            <img src="images/city_16.gif" width="15" height="49" alt="不变的挚爱" /></td>
+                        <td rowspan="4">
+                            <img src="images/city_17.gif" width="5" height="85" alt="" /></td>
+                        <td rowspan="4">
+                            <img src="images/city_18.gif" width="64" height="85" alt="" /></td>
+                        <td colspan="2" rowspan="2" style="background-image: url([images/city_19.gif])">
+                            <table width="75%">
+                                <tr>
+                                    <td>
+                                        <div id="Layer1" style="z-index: 1; width: 58px; position: absolute; height: 19px">
+                                            <div id="divUpControl" style="z-index: 1; left: 129px; visibility: visible; width: 14px;
+                                                top: 245px; height: 14px">
+                                                <a onmouseover="PerformScroll(-2);MM_swapImage('one','','images/button-up.gif',1)"
+                                                    onmouseout="CeaseScroll();MM_swapImgRestore()" href="javascript:;">
+                                                    <img height="13" alt="向上..." src="images/button-up1.gif" width="13" border="0" name="one" /></a>
+                                            </div>
+                                            <div id="divDownControl" style="left: 150px; visibility: visible; width: 14px; top: 245px;
+                                                height: 14px">
+                                                <a onmouseover="PerformScroll(1);MM_swapImage('two','','images/button-down.gif',1)"
+                                                    onmouseout="CeaseScroll();MM_swapImgRestore()" href="javascript:;">
+                                                    <img height="13" alt="向下..." src="images/button-down1.gif" width="13" border="0"
+                                                        name="two" />
+                                                </a>
+                                            </div>
+                                            <div id="divContainer" style="visibility: visible; width: 169px; height: 203px; left: 10px">
+                                                <div id="divContent" style="">
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><font color="#993300">年轻的心想去流浪</font></b><br />
+                                                    这个世界是光怪陆离的，各式各样的怪人都有，人们用自己喜爱的方式生存着，上帝以仁慈的心包容着一切。寒心是属于那种天生犯贱的人，她的宿命是漂泊与流浪。<br />
+                                                    她那颗极不安分的心总是指使她一再的出走与流浪。她的脑中经常闪出很多怪念头，有许多常人无法详细的理论，那些怪怪的、也只有她才想的出的惊世骇俗的理论，并得意洋洋的将自己规划为第二类天才。寒心是个自恋叛逆的人，通常这种人被她自己称为第二类天才。<br />
+                                                    寒心很小的时候——忘记了是多小，只记得那时候爸爸妈妈都还在身边，寒心也没有开始念幼稚园——她一直相信自己是拣来的，也不知道是哪个缺德的家伙编的美丽故事，说寒心是爸妈拣来收养的，于是寒心一直想去找她的亲生父母，演出一场凄美的《咪咪流浪记》，甚至把她还是几分几分的零花钱积攒起来，以备稍微长大一点时候可以去找亲生父母。现在看来这些都是很可笑的，但对于那时的寒心却是一件顶大顶大的事，是很神圣的使命。她还尽量去熟悉村里的路，怕自己走丢了就回不来了，还偷偷的、极为神秘的凑在奶奶的耳边磨嗔，打听她的所谓的父母，奶奶也够幽默，居然说她是柳市的一个角落里抱来的，寒心一直深信不已，因为她的确是在柳市出生的。说是角落，其实寒心是没好意思说，那时候奶奶说的是WC，哈哈，现在想起，我都忍不住要嘲笑一翻，她也很虚心的不再提起这些糗事，想让我遗忘，我偏不怕死的写了出来，怕是又要惹来她的一顿猛K，我想寒心流浪的念头从那时已经开始萌芽了，注定了她漂泊流浪的一生。<br />
+                                                    上初一那年，寒心终于盼到了可以出远门的日子，父母在武汉已经稳定下来，姐姐也早已过去，剩下的寒心与弟弟也马上可以出去了。她把自己当成大人来看，为着飞机票的证明而跟着姑父东奔西跑，那时候温州并没有火车，飞机场也是简陋寒碜，只记得在办理了一大堆的手续、经过了许多弯弯纽纽的小房间，终于看见了飞机——原来真实的飞机也不大呀，寒心一直以为飞机是很庞大的呢——她带着弟弟与奶奶无比光荣与自豪的登上了客机，那一刹间，她的自我感觉良好极了，觉得自己第一次出远门就做了这么了不起的大事，她一直遗憾没能留着那张半票的机票做纪念。九十年代初期，对于一个十一二岁的小孩，坐飞机的确是不一样的体验。寒心是很喜欢旅行的，她喜欢感受各地不同的风俗人情，品尝不同的小吃特产。她极不安分，根本坐不住，有时候我难免怀疑她那时是不是患有“小儿多动症”。<br />
+                                                    在武汉，她最喜欢做的事情是在无聊的时候随意塌上一辆公交车，然后原路返回，或是中途下车玩个够再在对面车站上车。她总是独自做这样的傻事，因为没有伴，最心爱的弟弟早已经与同学打成一片，融不进任何交际圈的寒心只能是自娱其乐。几年下来，武汉就被她跑了个遍。<br />
+                                                    父亲有出差的机会寒心是绝不放过的，可惜那时父母忙于事业，极少与寒心交流，只有在乐清的时候，顺便带她去过雁荡山。记忆中只有少的可怜的那一次印象，为此数学考了99分，差的那一分被老师归咎于雁荡山之行。还有就是寒心大了以后曾去驻马店与新蔡找过父亲，以及为了投标的事情去南京、徐州相聚过。妈妈曾经去北京和广州玩，但是没带上寒心，她在家闹了几天的情绪后，最终还是淹没在母亲带回去的一箱礼物与零食中。<br />
+                                                    寒心就是这么爱动的人，她没事也喜欢瞒着家人溜出去玩，高考过后，她开始策划自己的流浪计划，几天的暝思苦想后，决定付诸于行动。她踌躅满志的写了张字条：“我到同学家玩几天，别太想我，我闪了！”，就离开了乐清，踏上了去上海的汽车，一路上由于年纪小，也由于是女性，得到了司机与乘客的特别照顾，汽车在雁荡山抛锚，大家饥肠辘辘的等到夜里1点才吃，而幸运的寒心在司机与2个帅哥的带领下，晚上8点就吃上了满满一桌的菜。到了上海，整洁宽敞的马路与多彩的出租车，使她感到前所未有的眩晕，一下子就爱上了美丽的大都市：“以后我一定要住在这么漂亮的地方！”。<br />
+                                                    出来时，她身上带了200元现金，车费花了100元，吃顿肯德基又花了26元。卡里虽有8000多元储蓄，但是美丽的银行小姐残酷的对她说：“对不起，您的卡在上海无法取读”，她一下子就软下去了。说到这，我又要笑了，她竟笨的忘记了那张储蓄卡只能在浙江范围用，更笨的没想过先去杭州取钱再回上海玩。可那时她真的都没想到过这些，只是万分担忧的想着怎么回去。她的第一次流浪宣告失败，忐忑不安中，她回到了来时的汽车站，居然又看见那个司机了。<br />
+                                                    司机热情的与她打招呼，问她要不要一起回去，没等寒心回答，他就跟身边的老板说寒心是他的老乡（感谢上天让寒心会说武汉话），并要求老板不收钱。哈哈，真是天助也，寒心一边心里偷着乐，一边装作没事人一般，还是“勉为其难”的跟司机上了车。她很心虚的担心司机知道她身上不够钱，又勇敢的想着万一被发现就打电话叫人送钱来。就这样她又回到了乐清，又一个无聊的暑假开始了……真闷那！而令寒心既得意又吐血的是，家人真的都以为她去同学家玩了，甚至看见车票也没怀疑过是寒心的所为，直到她一时忘形中提起，家人才深倒吸了一口气，忙着给她讲解仕途与人心险恶。，寒心也不甘示弱：“凭那几个小毛虫还不是寒心对手，他们想什么我会不知道，只是旅途上多个人照顾也不错！”，唉，任性、无知、天真、妄为、轻信的寒心呀！<br />
+                                                    有了第一次，难免就会继续着有第二次，第三次……历史总是惊人的重复着，就像轮回般无可奈何却又深深吸引着人们。寒心又离家出走了许多次，但是以后的出走就没有这么幸运与单纯了，那些都是寒心惨痛的教训与回忆，我一直希望将她的许许多多的故事都一一化为文字，但是又怕寒心再想起那些该提不该提的往事，不可否认，她的许多经历都是难能可贵的经验，使她比同年人懂的更多，也更真实的接触到了社会的本质与黑暗，她曾在火车站与街头哆嗦着过了一夜又一夜；曾在地下招待所被人误以为是小姐；曾几天只吃一点点廉价的食品；曾饿的脚底发软，刷牙竟没力气挤牙膏；曾大方的将几千几千的钱放心的交给陌生人，却一去不复返；曾落魄到身无分文、走投无路，用忘记在包里的磁卡打电话到另一个城市，叫网友开车连夜来接她……更多的是别人异样的眼光与藐视，深深的伤害着寒心脆弱而自尊的心，太多难以想象的故事了。或许寒心本身就是一个迷，她身上的故事有些甚至是小说与电视都无法接触到的，很多东西我不敢往上写，那只会伤害到我挚爱的父母，他们是那样的以寒心为荣，而在他们不知情的背后，寒心竟有这么黑暗的一面，叫他们何以去面对与接受呢？我很爱我的家人，从不愿去伤害他们，却不经意间伤了他们一次又一次。<br />
+                                                    寒心是注定一生漂泊无依的人，是个被诅咒的灵魂，她的邪恶与罪孽无可饶恕，正如她以前日记中的一句：“年轻的心想去流浪，背上行囊，我离开了家……”<br />
+                                                    漂泊流浪是寒心注定的宿命，她此生都逃不掉的……</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td colspan="3" rowspan="6">
+                            <img src="images/city_20.gif" width="369" height="119" alt="" /></td>
+                        <td>
+                            <img src="images/spacer.gif" width="1" height="27" alt="" /></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="3">
+                            <img src="images/city_21.gif" width="17" height="58" alt="" /></td>
+                        <td>
+                            <img src="images/spacer.gif" width="1" height="13" alt="" /></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" rowspan="2">
+                            <img src="images/city_22.gif" width="73" height="45" alt="" /></td>
+                        <td>
+                            <img src="images/spacer.gif" width="1" height="9" alt="" /></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <img src="images/city_23.gif" width="15" height="36" alt="" /></td>
+                        <td>
+                            <img src="images/spacer.gif" width="1" height="36" alt="" /></td>
+                    </tr>
+                    <tr>
+                        <td colspan="11">
+                            <img src="images/city_24.gif" width="223" height="1" alt="" /></td>
+                        <td rowspan="4">
+                            <img src="images/city_25.gif" width="8" height="196" alt="" /></td>
+                        <td>
+                            <img src="images/spacer.gif" width="1" height="1" alt="" /></td>
+                    </tr>
+                    <tr>
+                        <td colspan="11" rowspan="3">
+                            <img src="images/city_26.gif" width="223" height="195" alt="" /></td>
+                        <td>
+                            <img src="images/spacer.gif" width="1" height="33" alt="" /></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2">
+                            <img src="images/city_27.gif" width="200" height="162" alt="" /></td>
+                        <td style="background-image: url([images/city_28.gif])">
+                            <div id="Layer2" style="position: absolute; width: 128px; height: 108px; z-index: 2">
+                                <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0"
+                                    width="210" height="140">
+                                    <param name="movie" value="flash/index_01.swf" />
+                                    <param name="quality" value="high" />
+                                    <param name="wmode" value="transparent" />
+                                    <embed src="flash/index_01.swf" quality="high" pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash"
+                                        type="application/x-shockwave-flash" width="210" height="140" wmode="transparent"></embed>
+                                </object>
+                            </div>
+                        </td>
+                        <td rowspan="2">
+                            <img src="images/city_29.gif" width="113" height="162" alt="" /></td>
+                        <td>
+                            <img src="images/spacer.gif" width="1" height="49" alt="" /></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <img src="images/city_30.gif" width="56" height="113" alt="" /></td>
+                        <td>
+                            <img src="images/spacer.gif" width="1" height="113" alt="" /></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <img src="images/spacer.gif" width="4" height="1" alt="" /></td>
+                        <td>
+                            <img src="images/spacer.gif" width="15" height="1" alt="" /></td>
+                        <td>
+                            <img src="images/spacer.gif" width="5" height="1" alt="" /></td>
+                        <td>
+                            <img src="images/spacer.gif" width="17" height="1" alt="" /></td>
+                        <td>
+                            <img src="images/spacer.gif" width="15" height="1" alt="" /></td>
+                        <td>
+                            <img src="images/spacer.gif" width="6" height="1" alt="" /></td>
+                        <td>
+                            <img src="images/spacer.gif" width="13" height="1" alt="" /></td>
+                        <td>
+                            <img src="images/spacer.gif" width="6" height="1" alt="" /></td>
+                        <td>
+                            <img src="images/spacer.gif" width="13" height="1" alt="" /></td>
+                        <td>
+                            <img src="images/spacer.gif" width="64" height="1" alt="" /></td>
+                        <td>
+                            <img src="images/spacer.gif" width="65" height="1" alt="" /></td>
+                        <td>
+                            <img src="images/spacer.gif" width="8" height="1" alt="" /></td>
+                        <td>
+                            <img src="images/spacer.gif" width="200" height="1" alt="" /></td>
+                        <td>
+                            <img src="images/spacer.gif" width="56" height="1" alt="" /></td>
+                        <td>
+                            <img src="images/spacer.gif" width="113" height="1" alt="" /></td>
+                        <td>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

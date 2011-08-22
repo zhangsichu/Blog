@@ -1,0 +1,541 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Sweeper Sample</title>
+    <style type="text/css">
+        body
+        {
+            border: 0px;
+            margin: 0px;
+            padding: 0px;
+            background-image: url(image/background.jpg);
+            font-size: 13px;
+            letter-spacing: 2px;
+            text-shadow: 0 0 3px black;
+            font-family: Microsoft YaHei,Segoe UI,Helvetica,Arial,sans-serif;
+            font-weight: bold;
+            color: #C6DAFC;
+        }
+        div
+        {
+            border: 0px;
+        }
+        img
+        {
+            border: 0px;
+        }
+        a
+        {
+            height: 25px;
+            width: 160px;
+            padding-top: 5px;
+            margin: 7px;
+            background: #8092B3 none;
+            color: white;
+            font-weight: lighter;
+            letter-spacing: 3px;
+            display: inline-block;
+            line-height: normal;
+			-webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            -webkit-transition: all .3s;
+            border-radius: 10px;
+            text-decoration: none;
+            outline: 0;
+            text-align: center;
+            vertical-align: middle;
+        }
+        a:hover
+        {
+            background-color: #5C729A;
+        }
+        .titleFont
+        {
+            font-size: 17px;
+        }
+        .displayFont
+        {
+            color: white;
+            font-weight: lighter;
+            letter-spacing: 3px;
+            display: inline-block;
+            line-height: normal;
+            font-size: 18px;
+        }
+        .line
+        {
+            border: #43485F 1px solid;
+        }
+        .textSetting
+        {
+            width: 150px;
+            border: 1px solid #999999;
+            color: white;
+            font-weight: lighter;
+            background: #8092B3;
+        }
+        .winFont
+        {
+            color: #F47272;
+            font-size: 11px;
+        }
+        .loseFont
+        {
+            color: #7B94E5;
+            font-size: 11px;
+        }
+        .savedGame
+        {
+            float: left;
+            border: dotted 1px #999999;
+            margin: 3px;
+            padding: 3px;
+            background-color: #C8CFDA;
+        }
+        .savedGameMouseOver
+        {
+            float: left;
+            border: solid 1px #FF9999;
+            margin: 3px;
+            padding: 3px;
+            background-color: #C8CFDA;
+        }
+    </style>
+    <script type="text/javascript" src="js/InfoProcess.js"></script>
+    <script type="text/javascript" src="js/MineArea.js"></script>
+    <script type="text/javascript" src="js/Game.js"></script>
+    <script type="text/javascript" src="js/GameStorage.js"></script>
+    <script type="text/javascript">
+        //====Helper Functions==========
+        function $(id) { return document.getElementById(id); }
+        Function.prototype.CreateDelegate = function (instance, method) { return function () { return method.apply(instance, arguments); } }
+        function checkInput(item, value) { var temp = parseInt(item.value); if (temp.toString() == "NaN" || temp <= 0) { item.value = value; } else { item.value = temp; } }
+        //====Helper Functions End========
+
+        function main() {
+            var canvas = $('theCanvas');
+            var cellSize = window.DefalutCellSize;
+            var cellStyle = window.DefaultCellStyle;
+            var mineWidth = window.DefaultX;
+            var mineHeight = window.DefaultY;
+            var mine = window.DefaultMine;
+
+            var mineInfo = new MineInfo(mineWidth, mineHeight, mine);
+            var infoProcess = new InfoProcess(mineInfo);
+            var mineArea = new MineArea(canvas, cellSize, cellStyle);
+
+            var gameStatus = new GameStatus(false, false, 0);
+            var currentGame = new Game(new GameInfo(mineInfo, gameStatus), infoProcess, mineArea, gameTimeLapseHandler, startGameHandler, stopGameHandler, pauseGameHandler, resumeGameHandler, winHandler, loseHandler, mineChangeHandler, generateUIHandler);
+
+            var maxSize = window.DefaultMaxStorageSize;
+            var storageAreaStyle = window.DefaultStorageAreaStyle;
+            var currentGameStorage = new GameStorage(maxSize, storageAreaStyle, storageAreaMouseOverHandler, storageAreaMouseOutHandler, storageAreaMouseUpHandler, maxHandler, saveHandler, deleteHandler);
+
+            window.CurrentGame = currentGame;
+            window.CurrentGameStorage = currentGameStorage;
+            window.CurrentFace = 0;
+
+            currentGame.GenerateUI();
+            currentGame.StartGame();
+        }
+
+        //Game handler.
+        function gameTimeLapseHandler(costTime) {
+            document.getElementById("gameTimeCost").innerHTML = costTime;
+        }
+
+        function mineChangeHandler(mine) {
+            document.getElementById("gameCurrentMine").innerHTML = mine;
+        }
+
+        function generateUIHandler(mineInfo, mineArea) {
+            if (mineInfo.X <= 10 && mineInfo.Y <= 10)
+                mineArea.ResetCellSizeTo(40);
+            else
+                mineArea.ResetCellSizeTo(20);
+        }
+
+        function startGameHandler() {
+            $("gameSwitcher").innerHTML = "Pause";
+            adjustUI();
+            setFace(0);
+        }
+
+        function pauseGameHandler() {
+            $("gameSwitcher").innerHTML = "Start";
+            adjustUI();
+        }
+
+        function resumeGameHandler(storageInfo) {
+            adjustUI();
+            setFace(storageInfo.CurrentFace);
+        }
+
+        function stopGameHandler() {
+            $("gameSwitcher").innerHTML = "[Stopped]";
+        }
+
+        function winHandler(mineInfo, costTime, x, y, context) {
+            setFace(1);
+            saveRecord(true, mineInfo, costTime);
+            if (confirm("Congratulation! You Win! New Round?"))
+                window.CurrentGame.NewRound();
+        }
+
+        function loseHandler(mineInfo, costTime, x, y, context) {
+            setFace(2);
+            saveRecord(false, mineInfo, costTime);
+            if (confirm("You Lose. New Round?"))
+                window.CurrentGame.NewRound();
+        }
+
+        function adjustUI() {
+            var gamePanel = $("gamePanel");
+            var mineAreaPanel = $("mineAreaPanel");
+            var canvas = $("theCanvas");
+            var costTimePanel = $("costTimePanel");
+            var currentMinePanel = $("currentMinePanel");
+
+            var width = canvas.offsetWidth;
+            var height = canvas.offsetHeight;
+
+            //set the mineArea
+            mineAreaPanel.style.width = width + "px";
+            mineAreaPanel.style.height = height + "px";
+            mineAreaPanel.style.marginLeft = Math.floor((gamePanel.offsetWidth - width) / 2 - 1) + "px";
+
+            var minHeight = 300;
+            var baseHeight = 400;
+            if (height > minHeight)
+                gamePanel.style.height = (baseHeight + height - minHeight) + "px";
+            else
+                gamePanel.style.height = baseHeight + "px";
+
+        }
+        //end.
+
+        //GameStorage
+        function storageAreaMouseOverHandler() {
+            this.parentNode.className = "savedGameMouseOver";
+        }
+
+        function storageAreaMouseOutHandler() {
+            this.parentNode.className = "savedGame";
+        }
+
+        function storageAreaMouseUpHandler(e) {
+            var index = getStorageAreaIndex(e.target);
+            if (index == -1)
+                return;
+
+            if (e == null) e = window.event;
+            if (e.button != 2)
+                window.CurrentGame.ResumeGame(window.CurrentGameStorage.GetGame(index).Clone());
+            else
+                window.CurrentGameStorage.DeleteGame(index);
+        }
+
+
+        function maxHandler(index) {
+            alert("No Enough Space To Save Current Game!");
+        }
+
+        function saveHandler(index, storageArea) {
+            var storageAreaPanel = document.createElement("DIV");
+            storageAreaPanel.className = "savedGame";
+            storageAreaPanel.appendChild(storageArea);
+            $("savePanel").appendChild(storageAreaPanel);
+        }
+
+        function deleteHandler(index) {
+            var savePanel = $("savePanel");
+            if (savePanel.children.length <= index)
+                return;
+            savePanel.removeChild(savePanel.children[index]);
+        }
+
+        function getStorageAreaIndex(storageArea) {
+            var storageAreaPanel = storageArea.parentNode;
+            var savePanel = $("savePanel");
+            for (var i = 0; i < savePanel.children.length; i++) {
+                if (savePanel.children[i] == storageAreaPanel) {
+                    return i;
+                }
+            }
+            return -1;
+        }
+
+        function setFace(currentFace) {
+            if (currentFace != 0 && currentFace != 1 && currentFace != 2)
+                return;
+
+            gameFace = $("gameFace");
+
+            switch (currentFace) {
+                case 0: //normal
+                    gameFace.src = "image/faceNormal.png";
+                    break;
+                case 1: //win
+                    gameFace.src = "image/faceWin.png";
+                    break;
+                case 2: //lose
+                    gameFace.src = "image/faceLose.png";
+                    break;
+                default:
+                    break;
+            }
+            window.CurrentFace = currentFace;
+        }
+        //end
+
+        //UI event Handler
+        function customerGame(x, y, mine) {
+            x = parseInt(x);
+            y = parseInt(y);
+            mine = parseInt(mine);
+            if (x.toString() == "NaN" ||
+               y.toString() == "NaN" ||
+               mine.toString() == "NaN" ||
+               x <= 0 || y <= 0 || mine <= 0) {
+                alert("Customer Setting Error!");
+                return;
+            }
+            if (!(x >= 7 && x <= 30 && y >= 7 && y <= 30 && mine >= 1 && x * y > mine)) {
+                alert("Customer Setting Error! Correct Format:\n30>=GameWidth>=7\n30>=GameHeight>=7\nGameHeight*GameWidth>BombsNumber!");
+                return;
+            }
+            window.CurrentGame.NewGame(x, y, mine);
+        }
+
+        function saveRecord(isWin, mineInfo, costTime) {
+            var recordCount = $("recordCount");
+            recordCount.innerHTML = parseInt(recordCount.innerHTML) + 1;
+            var item = document.createElement("LI");
+            $("recordList").appendChild(item);
+            var text = "W:" + mineInfo.X + " H:" + mineInfo.Y + " M:" + mineInfo.Mine + " Time:" + costTime + "S ";
+            if (isWin) {
+                text += "Win!";
+                item.className = "winFont";
+            }
+            else {
+                text += "Lose.";
+                item.className = "loseFont";
+            }
+            item.appendChild(document.createTextNode(text));
+        }
+
+        function resetGame() {
+            window.CurrentGame.ResetGame();
+        }
+
+        function newGame(x, y, mine) {
+            window.CurrentGame.NewGame(x, y, mine);
+        }
+
+        function randomGame() {
+            window.CurrentGame.RandomGame();
+        }
+
+        function switchGame() {
+            if (!window.CurrentGame.GameInfo.GameStatus.IsStart)
+                return;
+            if (!window.CurrentGame.GameInfo.GameStatus.IsPause)
+                window.CurrentGame.PauseGame();
+            else
+                window.CurrentGame.StartGame();
+        }
+
+        function testPerformance(times) {
+            times = parseInt(times);
+            if (times.toString() == "NaN") {
+                alert("Performance Test Setting Error!");
+                return;
+            }
+            if (times > 100)
+                if (!confirm("Do You Want To Kill Your Browser?"))
+                    return;
+            if (times >= 0) {
+                times--;
+                window.CurrentGame.RandomGame();
+                setTimeout(function () { testPerformance(times); }, 10);
+            }
+        }
+
+        function saveGame() {
+            window.CurrentGameStorage.SaveGame(new StorageInfo(window.CurrentGame.GameInfo, window.CurrentGame.InfoProcess.CurrentMine, window.CurrentFace));
+        }
+        //end.
+
+        window.onload = main;
+    </script>
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-22028503-1']);
+        _gaq.push(['_setDomainName', '.zhangsichu.com']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+</head>
+<body>
+    <div style="float:left;width:320px;">
+        <div style="padding:0px 10px 0px 20px;padding-top:10px;">
+            <div class="titleFont">
+            Welcome to MineSweeper! <br />
+            Today is: <script type="text/javascript">document.write(new Date().toDateString());</script>.
+            </div>
+            <div class="line"></div>
+            <div class="titleFont">
+            Game Mode:
+            </div>
+            <div style="margin-left:80px; margin-top:5px;">
+                <a href="javascript:newGame(7,7,10);" class="button">Beginner</a> <br />
+                <a href="javascript:newGame(15,15,40);" class="button">Intermediate</a> <br />
+                <a href="javascript:newGame(30,15,99);" class="button">Expert</a> <br />
+                <a href="javascript:randomGame();" class="button">Random</a> <br />
+            </div>
+            <div class="line"></div>
+            <div class="titleFont">
+            Customer Setting:
+            </div>
+            <table style="margin-top:5px; font-size:12px;">
+                <tr><td>Game Height:</td>
+                    <td><input id="mineHeight" type="text" class="textSetting" value="15" onkeyup="javascript:checkInput(this,window.DefaultY);" onpaste="javascript:checkInput(this,window.DefaultY);" maxlength="2"/></td></tr>
+                <tr><td>Game Width:</td>
+                    <td><input id="mineWidth" type="text" class="textSetting" value="30" onkeyup="javascript:checkInput(this,window.DefaultX);" onpaste="javascript:checkInput(this,window.DefaultX);" maxlength="2"/></td></tr>
+                <tr><td>Number of Bombs:</td>
+                    <td><input id="mineNumber" type="text" class="textSetting" value="99"onkeyup="javascript:checkInput(this,window.DefaultMine);" onpaste="javascript:checkInput(this,window.DefaultMine);" maxlength="2"/></td></tr>
+            </table>
+            <div style="margin-left:80px;">
+                <a href="javascript:customerGame($('mineWidth').value,$('mineHeight').value,$('mineNumber').value);" class="button">New Game</a>
+            </div>
+            <div class="line"></div>
+            <div class="titleFont">
+            Performace Test:
+            </div>
+            <table style="margin-top:5px; font-size:12px;">
+                <tr>
+                    <td>Times:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    <td><input id="testTimes" type="text" class="textSetting" value="10" onkeyup="javascript:checkInput(this,window.DefaultTestTimes);" onpaste="javascript:checkInput(this,window.DefaultTestTimes);" maxlength="3"/></td>
+                </tr>
+            </table>
+            <div style="margin-left:80px; margin-top:5px;">
+                <a href="javascript:testPerformance($('testTimes').value);" class="button">GO</a>
+            </div>
+            <div class="line"></div>
+            <div class="titleFont">
+            Game Record(s): <span id="recordCount">0</span>
+            </div>
+            <ul id="recordList" style="margin-top:5px; line-height:140%">
+            </ul>
+        </div>
+    </div>
+    <div style="margin-left:320px;">
+      <div style="padding:10px 10px 0px 20px;">
+        <div class="titleFont" style="text-align:left; padding-right:10px;">Powered By ZhangSichu <br />Copyright © ZhangSichu.com</div>
+        <div class="line"></div>
+        <div>
+          <a href="javascript:switchGame();" class="button" id="gameSwitcher">Pause</a>
+          <a href="javascript:saveGame();" class="button">Save</a>
+          
+          <div id="gamePanel" style="background-image:url(image/panelbackground.gif); width:700px; height:400px; text-align:center; vertical-align:middle; border: solid 1px #B6BCCC;">
+            <div style="text-align:center; height:25px;"></div>
+            <div id="mineAreaPanel" style="border: solid 1px #818BAA; width:600px; height:300px; margin-left:50px;"><canvas id="theCanvas"></canvas></div>
+            <div style="margin-top:10px;">
+                <div id="costTimePanel" style="float:left; margin-left:70px; width:142px; height:55px; background-image:url(image/timeBackground.png)"><br /><span style="margin-left:55px;" class="displayFont" id="gameTimeCost">000</span></div>
+                <div style="float:left;margin-left:110px;"><img id="gameFace" src="image/faceNormal.png" alt="" onclick="javascript:resetGame();" /></div>
+                <div id="currentMinePanel" style="float:right; margin-right:70px; width:142px; height:53px; background-image:url(image/mineBackground.png)"><br /><span style="margin-right:55px;" class="displayFont" id="gameCurrentMine">000</span></div>
+            </div>
+          </div>
+
+        </div>
+        <br />
+        <div class="line"></div>
+        <b>Game Storage:</b><br />
+        <div id="savePanel"></div>
+      </div>
+    </div>
+    <div style="display:none">
+        <img src="image/flag.gif" alt="" id="flag" />
+        <img src="image/ask.gif" alt="" id="ask" />
+        <img src="image/mine.gif" alt="" id="mine" />
+        <img src="image/explodedMine.gif" alt="" id="explodedMine" />
+        <img src="image/normal.gif" alt="" id="normal" />
+        <img src="image/highlight.gif" alt="" id="highlight" />
+        <img src="image/one.gif" alt="" id="one" />
+        <img src="image/two.gif" alt="" id="two" />
+        <img src="image/three.gif" alt="" id="three" />
+        <img src="image/four.gif" alt="" id="four" />
+        <img src="image/five.gif" alt="" id="five" />
+        <img src="image/six.gif" alt="" id="six" />
+        <img src="image/seven.gif" alt="" id="seven" />
+        <img src="image/eight.gif" alt="" id="eight" />                        
+    </div>
+    <script type="text/javascript">
+        //==========Static Data==========
+        window.DefaultX = 30;
+        window.DefaultY = 15;
+        window.DefaultMine = 99;
+
+        window.DefalutCellSize = 20;
+        window.DefaultCellStyle = {
+            CellBorderLineWidth: 1,
+            CellBorderStyle: "rgba(100,100,100,0.85)",
+
+            IncorrectLineStyle: "rgba(255,0,0,0.7)",
+            IncorrectLineWidth: 3,
+
+            EmptyFillStyle: "rgba(188,198,233,1)",
+            EmptyShadowStyle: "rgba(255,255,255,1)",
+
+            FlagImage: $("flag"),
+            AskImage: $("ask"),
+            MineImage: $("mine"),
+            ExplodedMineImage: $("explodedMine"),
+            NormalImage: $("normal"),
+            HighlightImage: $("highlight"),
+
+            ImageOne: $("one"),
+            ImageTwo: $("two"),
+            ImageThree: $("three"),
+            ImageFour: $("four"),
+            ImageFive: $("five"),
+            ImageSix: $("six"),
+            ImageSeven: $("seven"),
+            ImageEight: $("eight")
+        };
+
+        window.DefaultStorageAreaStyle = {
+            StorageCellSize: 5,
+            StorageCellBorderLineWidth: 1,
+            StorageCellBorderStyle: "rgba(100,100,100,0.85)",
+
+            SavedCellStyle: "#9D9D9D",
+            SavedCellFlagStyle: "#952C28",
+            SavedCellAskStyle: "#060606",
+            SavedCellEmptyStyle: "#C0C0C0",
+            SavedCellMineYesStyle: "#7E7E7E",
+            SavedCellMineNoStyle: "#5B1918",
+            SavedCellMineExplodedStyle: "#E51F1F",
+            SavedCellIncorrectFlagStyle: "#CA25E2",
+
+            SavedCellOneStyle: "#0306C7",
+            SavedCellTwoStyle: "#0E780C",
+            SavedCellThreeStyle: "#E6070A",
+            SavedCellFourStyle: "#00035E",
+            SavedCellFiveStyle: "#740D11",
+            SavedCellSixStyle: "#287378",
+            SavedCellSevenStyle: "#000000",
+            SavedCellEightStyle: "#7E7E7E"
+        };
+
+        window.DefaultTestTimes = 10;
+        window.DefaultMaxStorageSize = 10;
+        //====Static Data End========
+    </script>
+</body>
+</html>

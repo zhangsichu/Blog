@@ -1,0 +1,89 @@
+body, input, pre, td
+{
+	background-color: black;
+	color: #8f8;
+	font-family: "Courier New" ,Courier,monospace;
+	font-size: 16px;
+	text-decoration: none;
+}
+body
+{
+	margin: 4px;
+	padding: 0;
+}
+input
+{
+	border: 0;
+	width: 0px;
+}
+h1, h2, h3, h4, h5, h6
+{
+	background-color: #8f8;
+	color: #000;
+}
+a, a:visited, .linky
+{
+	color: #8f8;
+	text-decoration: none;
+	font-weight: bold;
+	cursor: pointer;
+}
+a:hover, span.linky:hover, td.linky:hover
+{
+	color: #000;
+	background-color: #8f8;
+}
+table
+{
+	border-collapse: collapse;
+}
+td
+{
+	padding: 0 1em 0 1em;
+}
+p, pre
+{
+	margin-top: 1em;
+}
+img#csr
+{
+	margin-bottom: -2px;
+	background-color: #8f8;
+}
+img
+{
+	background-color: #8f8;
+}
+#frontCell
+{
+	width: 350px;
+	vertical-align: top;
+}
+.linkyHover
+{
+	color: #000;
+	background-color: #8f8;
+	font-size: 14px;
+	font-weight: bold;
+	cursor: pointer;
+}
+.linkyNormal
+{
+	color: #8f8;
+	background-color: #000;
+	cursor: default;
+	font-weight: bold;
+	font-size: 14px;
+}
+.blogContent
+{
+	padding-left: 10px;
+}
+.blogFooter
+{
+	text-align: right;
+}
+.searchFooter
+{
+	text-align: right;
+}

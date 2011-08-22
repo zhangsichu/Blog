@@ -1,0 +1,141 @@
+﻿html
+{
+    font-family: Microsoft YaHei,Segoe UI,Helvetica,Arial,sans-serif;
+    font-size: 12px;
+}
+body
+{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    background-color: white;
+    -webkit-text-size-adjust: none;
+    background-image: url(background.jpg);
+    color: #C6DAFC;
+}
+.page
+{
+    margin: 0 auto 0 auto;
+    width: 960px;
+    min-width: 960px;
+    min-height: 500px;
+}
+.top
+{
+    width: 960px;
+    overflow: hidden;
+    min-height: 302px;
+}
+.topImage
+{
+    min-height: 301px;
+    float: left;
+    overflow: hidden;
+}
+.topImageCenter
+{
+    margin: 0px 9px 0px 9px;
+}
+.topArticle
+{
+    margin-top: 30px;
+    border: 2px dotted #7681A5;
+    border-radius: 12px;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+    min-height: 270px;
+}
+.topTitle, .topAuthor
+{
+    color: #92A2BB;
+    line-height: 150%;
+    letter-spacing: 6px; 
+    font-size: 20px;
+    margin: 22px;
+    font-weight: bold;
+    float:left;
+}
+.topAuthor
+{
+    color: #92A2BB;
+    line-height: 150%;
+    letter-spacing: 2px; 
+    font-size: 20px;
+    font-weight: bolder;
+    margin: 22px;
+    float:right;
+}
+.topBody
+{
+    clear:both;
+    margin: 10px;
+    line-height: 200%;
+    letter-spacing: 3px;
+    font-weight: bold;
+    font-size: 13px;
+}
+.middleText
+{
+    line-height: 200%;
+    letter-spacing: 3px;
+    font-weight: bold;
+    font-size: 15px;
+}
+.footerText
+{
+    float:right;
+    margin: 10px;
+    line-height: 200%;
+    letter-spacing: 1px;
+    font-weight: bold;
+    font-size: 13px;
+}
+.joinBody
+{
+    clear:both;
+    margin: 5px 35px 10px 35px;
+    line-height: 200%;
+    letter-spacing: 3px;
+    font-weight: bold;
+    font-size: 16px;
+    color: #E2E4E9;
+}
+.joinInfo
+{
+    float:right;
+    margin: 10px 10px 10px 0px;
+    line-height: 200%;
+    letter-spacing: 3px;
+    font-weight: bold;
+    font-size: 14px;
+    color: #ff79ce;
+}
+
+.joinBody A
+{
+    text-decoration: none;
+    color: #E2E4E9;
+    margin-right: 10px;
+    cursor:pointer;
+}
+
+.joinBody A:hover
+{
+    text-decoration: none;
+    color: #0ab158;
+    margin-right: 10px;
+    cursor:pointer;
+}
+.loadingImage
+{
+    width: 30px;
+    height: 30px;
+}
+.loadingPanel
+{
+    position: relative;
+    left: 400px;
+}
